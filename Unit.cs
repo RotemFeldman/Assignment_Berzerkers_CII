@@ -1,13 +1,21 @@
-﻿//   C#II (Dor Ben Dor) //
-//     Rotem Feldman    //
+﻿//  C#II (Dor Ben Dor) //
+// Rotem Feldman - OOP3 //
 //////////////////////////
 
 namespace C_II_1stAssignment
 {
     abstract class Unit
     {
+        public Unit(int damage, int hp) { Damage = damage; HP = hp; }
         public virtual int Damage { get; set; }
         public virtual int HP { get; set;}
+        public virtual float ChanceToActivateAbility { get; set; }
+        public abstract Race UnitRace { get; set; }
+
+        public enum Race
+        {
+            Human
+        }
 
         public abstract void Attack(Unit defender, int dmg);
     
@@ -19,9 +27,13 @@ namespace C_II_1stAssignment
             HP -= dmg;
         }
 
-        protected enum Race
+        protected bool CheckAbility()
         {
-            Human, Elf, Orc, Merfolk, Fairy
+            if (Random.Shared.NextDouble() < ChanceToActivateAbility)
+                return true;
+
+            return false;
         }
+
     }
 }

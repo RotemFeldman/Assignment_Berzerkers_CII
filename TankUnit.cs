@@ -1,25 +1,28 @@
-﻿//   C#II (Dor Ben Dor) //
-//     Rotem Feldman    //
+﻿//  C#II (Dor Ben Dor)  //
+// Rotem Feldman - OOP3 //
 //////////////////////////
 
 namespace C_II_1stAssignment
 {
-    abstract class TankUnit : Unit
+    abstract class HeavyUnit : Unit
     {
-        public float Fortification {  get;  protected set; }
+        protected HeavyUnit(int damage, int hp) : base(damage, hp) 
+        {
+        }
+
+        public int Fortification {  get; set; }
 
         public override void Defend(Unit attacker, int dmg)
         {
-            Fortification++;           
+            Fortification++;
 
-            ApplyDamage(Convert.ToInt32(dmg - (Fortification/2)));
-        }
+            if (dmg - Fortification < 0)
+                return;
 
-        public override void Attack(Unit defender, int dmg)
-        {
-            defender.Defend(this, Damage + Convert.ToInt32(Fortification));
-            Fortification = 0;
+            ApplyDamage(dmg - Fortification);
         }
+       
+
 
 
     }

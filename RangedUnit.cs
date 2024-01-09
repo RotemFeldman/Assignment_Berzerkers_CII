@@ -1,5 +1,5 @@
-﻿//   C#II (Dor Ben Dor) //
-//     Rotem Feldman    //
+﻿//  C#II (Dor Ben Dor)  //
+// Rotem Feldman - OOP3 //
 //////////////////////////
 
 namespace C_II_1stAssignment
@@ -8,39 +8,22 @@ namespace C_II_1stAssignment
     {
         public float Range { get; set; }
         public int AmmoPerReload { get; set; }
-        public double ChanceToMultiShot { get; set; }
+        
 
         protected int _ammoLeft;
 
-        
-
-        
-
-        public override void Attack(Unit defender, int dmg)
-        { 
-            if(_ammoLeft == 0)
-            {
-                Reload();
-                return;
-            }
-
-            if (CheckMultiShot())
-                Attack(defender, dmg);
-
-            _ammoLeft--;
-        }
-
-
-        protected virtual void Reload() => _ammoLeft = AmmoPerReload;
-
-        protected bool CheckMultiShot()
+        protected RangedUnit(int damage, int hp, float range, int ammoPerReload, float chanceToActivateAbility) : base(damage, hp)
         {
-            double rnd = Random.Shared.NextDouble();
-
-            if (rnd > ChanceToMultiShot)
-                return true;
-
-            return false;
+            Range = range;
+            AmmoPerReload = ammoPerReload;
+            ChanceToActivateAbility = chanceToActivateAbility;
+            _ammoLeft = ammoPerReload;
         }
+
+
+
+        public virtual void Reload() => _ammoLeft = AmmoPerReload;
+
+        
     }
 }
