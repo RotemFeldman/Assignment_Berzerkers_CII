@@ -8,18 +8,18 @@ namespace C_II_1stAssignment
     {
         static void Main(string[] args)
         {
-            Cowboy cowboy = new Cowboy(10,40,5f,6,0.1f);
+            HumanCowboy HumanCowboy = new HumanCowboy(10,40,5f,6,0.1f);
 
-            Cowboy cowboy2 = new Cowboy(10, 40, 5f, 6, 0.1f);
+            HumanCowboy HumanCowboy2 = new HumanCowboy(10, 40, 5f, 6, 0.1f);
 
-            Knight k = new Knight(17,93);
-            Monk m = new Monk(12, 74, 0.5f);
+            HumanKnight k = new HumanKnight(17,93);
+            HumanMonk m = new HumanMonk(12, 74, 0.5f);
 
         
-            Console.WriteLine(cowboy2.HP.ToString());
-            cowboy.Attack(m, cowboy.Damage);
+            Console.WriteLine(HumanCowboy2.HP.ToString());
+            HumanCowboy.Attack(m, HumanCowboy.Damage);
 
-            Console.WriteLine(cowboy2.HP.ToString());
+            Console.WriteLine(HumanCowboy2.HP.ToString());
             Console.WriteLine(m.Damage.ToString());
         }
     }

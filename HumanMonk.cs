@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace C_II_1stAssignment
 {
-    internal class Monk : Unit
+    internal class HumanMonk : Unit
     {
         public override Race UnitRace { get; set; } = Race.Human;
 
-        public Monk(int damage, int hp, float chanceToGuard) : base(damage, hp)
+        public HumanMonk(int damage, int hp, float chanceToGuard) : base(damage, hp)
         {
             ChanceToActivateAbility = chanceToGuard;
         }

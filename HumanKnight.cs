@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace C_II_1stAssignment
 {
-    sealed class Knight : HeavyUnit
+    sealed class HumanKnight : HeavyUnit
     {
         public override Race UnitRace { get; set; } = Race.Human;
-        public Knight(int damage, int hp) : base(damage, hp)
+        public HumanKnight(int damage, int hp) : base(damage, hp)
         {
         }
 
