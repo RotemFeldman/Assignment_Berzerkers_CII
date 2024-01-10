@@ -6,7 +6,8 @@ namespace C_II_1stAssignment
 {
     abstract class RangedUnit : Unit
     {
-        public float Range { get; set; }
+        public virtual float Range { get; set; }
+        public virtual bool InRange { get; set; }
         public int AmmoPerReload { get; set; }
         
 

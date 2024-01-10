@@ -7,6 +7,7 @@ namespace C_II_1stAssignment
     sealed class HumanCowboy : RangedUnit
     {
         public override Race UnitRace { get; set; } = Race.Human;
+        public override bool InRange { get ; set; } = true;
 
         private bool _retaliate = true;
         public HumanCowboy(int damage, int hp, float range, int ammoPerReload, float chanceToMultiShot) : base(damage, hp, range, ammoPerReload, chanceToMultiShot)
@@ -30,6 +31,9 @@ namespace C_II_1stAssignment
 
         public override void Attack(Unit defender, int dmg)
         {
+            if(!InRange) { return; }
+
+
             _retaliate = false;
             int abilityCount = 0;
 
