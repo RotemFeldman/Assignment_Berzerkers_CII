@@ -14,25 +14,25 @@ namespace C_II_1stAssignment
         public override bool InRange { get; set; } = true;
         public override int AmmoPerReload { get; set; }
 
-        public override void Attack(Unit defender, int dmg)
+        public override void Attack(Unit defender)
         {
             defender.IsBurning = true;
 
             if (CheckAbility())
             {
-                defender.Defend(this, dmg + (dmg / 2));
-                defender.Defend(this, dmg + (dmg / 2));
-                defender.Defend(this, dmg + (dmg / 2));
-                defender.Defend(this, dmg + (dmg / 2));
-                defender.Defend(this, dmg + (dmg / 2));
+                defender.Defend(this, Damage + (Damage / 2));
+                defender.Defend(this, Damage + (Damage / 2));
+                defender.Defend(this, Damage + (Damage / 2));
+                defender.Defend(this, Damage + (Damage / 2));
+                defender.Defend(this, Damage + (Damage / 2));
             }
             else
             {
-                defender.Defend(this, dmg);
-                defender.Defend(this, dmg);
-                defender.Defend(this, dmg);
-                defender.Defend(this, dmg);
-                defender.Defend(this, dmg);
+                defender.Defend(this, Damage);
+                defender.Defend(this, Damage);
+                defender.Defend(this, Damage);
+                defender.Defend(this, Damage);
+                defender.Defend(this, Damage);
             }
         }
 

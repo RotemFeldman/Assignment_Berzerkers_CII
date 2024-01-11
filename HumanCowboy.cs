@@ -25,13 +25,13 @@ namespace C_II_1stAssignment
             {
                 Console.WriteLine("HumanCowboy retaliates");
                 _retaliate = false;
-                Attack(attacker, dmg/2);
+                Attack(attacker);
             }
 
             _retaliate = true;
         }
 
-        public override void Attack(Unit defender, int dmg)
+        public override void Attack(Unit defender)
         {
             if(!InRange) { return; }
 
@@ -59,12 +59,12 @@ namespace C_II_1stAssignment
                 }
             }
 
-            defender.Defend(this, dmg);
+            defender.Defend(this, Damage);
             _ammoLeft--;
 
             for (int j = 0; j < abilityCount; j++)
             {
-                defender.Defend(this, dmg);
+                defender.Defend(this, Damage);
 
                 _ammoLeft--;
             }

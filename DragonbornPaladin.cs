@@ -14,11 +14,11 @@ namespace C_II_1stAssignment
         private bool _isAttacking;
         
 
-        public override void Attack(Unit defender, int dmg)
+        public override void Attack(Unit defender)
         {
             _isAttacking = true;
 
-            defender.Defend(this, dmg);
+            defender.Defend(this, Damage);
 
             _isAttacking = false;
         }

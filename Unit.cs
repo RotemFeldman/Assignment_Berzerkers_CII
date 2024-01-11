@@ -23,8 +23,9 @@ namespace C_II_1stAssignment
             Human, Dragonborn
         }
 
-        public abstract void Attack(Unit defender, int dmg);
-    
+        public abstract void Attack(Unit defender);
+        
+
 
         public abstract void Defend(Unit attacker, int dmg);
 

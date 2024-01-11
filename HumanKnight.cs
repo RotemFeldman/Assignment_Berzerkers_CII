@@ -12,9 +12,9 @@ namespace C_II_1stAssignment
         public override int Damage { get; set; } = 17;
         public override int HP { get; set; } = 95;
 
-        public override void Attack(Unit defender, int dmg)
+        public override void Attack(Unit defender)
         {
-            defender.Defend(this, dmg + Fortification);
+            defender.Defend(this, Damage + Fortification);
             Fortification /= 2;
         }
     }

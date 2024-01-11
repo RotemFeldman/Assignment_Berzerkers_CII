@@ -13,11 +13,11 @@ namespace C_II_1stAssignment
         public override int HP { get; set; } = 65;
         public override float ChanceToActivateAbility { get; set; } = 0.1f;
 
-        public override void Attack(Unit defender, int dmg)
+        public override void Attack(Unit defender)
         {
-            defender.Defend(this,dmg);
-            defender.Defend(this, (dmg -4) * 2);
-            defender.Defend(this, (dmg - 9) * 4);
+            defender.Defend(this,Damage);
+            defender.Defend(this, (Damage -4) * 2);
+            defender.Defend(this, (Damage - 9) * 4);
         }
 
         public override void Defend(Unit attacker, int dmg)

@@ -13,12 +13,12 @@ namespace C_II_1stAssignment
         public override int HP { get; set; } = 55;
         
 
-        public override void Attack(Unit defender, int dmg)
+        public override void Attack(Unit defender)
         {
-            defender.Defend(this, dmg);
+            defender.Defend(this, Damage);
 
             if (HP > 0) 
-                HP += Convert.ToInt32(dmg * 0.33);
+                HP += Convert.ToInt32(Damage * 0.33);
         }
 
         public override void Defend(Unit attacker, int dmg)

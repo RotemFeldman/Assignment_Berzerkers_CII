@@ -14,10 +14,10 @@ namespace C_II_1stAssignment
             HumanMonk m = new HumanMonk();
             
         
-           // Console.WriteLine(HumanCowboy2.HP.ToString());
-           // HumanCowboy.Attack(HumanCowboy2, HumanCowboy.Damage);
-           // HumanCowboy.Attack(HumanCowboy2, HumanCowboy.Damage);
-           // Console.WriteLine(HumanCowboy2.HP.ToString());
+            Console.WriteLine(HumanCowboy2.HP.ToString());
+            HumanCowboy.Attack(HumanCowboy2);
+            HumanCowboy.Attack(HumanCowboy2);
+            Console.WriteLine(HumanCowboy2.HP.ToString());
             
 
             foreach (RangedUnit unit in UnitList.AllRangedUnits) { unit.Reload(); } 
