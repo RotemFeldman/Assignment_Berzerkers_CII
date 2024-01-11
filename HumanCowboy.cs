@@ -7,7 +7,6 @@ namespace C_II_1stAssignment
     sealed class HumanCowboy : RangedUnit
     {
         public override Race UnitRace { get; set; } = Race.Human;
-        public override bool InRange { get ; set; } = true;
         public override int Damage { get; set; } = 12;
         public override int HP { get; set; } = 45;
         public override float Range { get; set; } = 20f;
@@ -18,12 +17,10 @@ namespace C_II_1stAssignment
 
         public override void Defend(Unit attacker, int dmg)
         {
-            Console.WriteLine("HumanCowboy defends");
             ApplyDamage(dmg);
             
-            if(HP > 0 && _retaliate)
+            if(HP > 0 && _retaliate && !(attacker is RangedUnit))
             {
-                Console.WriteLine("HumanCowboy retaliates");
                 _retaliate = false;
                 Attack(attacker);
             }
@@ -33,15 +30,12 @@ namespace C_II_1stAssignment
 
         public override void Attack(Unit defender)
         {
-            if(!InRange) { return; }
-
-
             _retaliate = false;
+
             int abilityCount = 0;
 
             if (_ammoLeft == 0)
             {
-                Console.WriteLine("no ammo, reloading");
                 Reload();
                 return;
             }
@@ -54,7 +48,6 @@ namespace C_II_1stAssignment
                 }
                 else
                 {
-                    Console.WriteLine("multishot");
                     abilityCount++;
                 }
             }
@@ -68,6 +61,8 @@ namespace C_II_1stAssignment
 
                 _ammoLeft--;
             }
+
+            _retaliate = true;
 
         }
     }

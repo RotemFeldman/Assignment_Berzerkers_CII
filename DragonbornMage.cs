@@ -11,7 +11,6 @@ namespace C_II_1stAssignment
         public override int HP { get; set; } = 35;
         public override float ChanceToActivateAbility { get; set; } = 0.33f;
         public override float Range { get; set; } = 15f;
-        public override bool InRange { get; set; } = true;
         public override int AmmoPerReload { get; set; }
 
         public override void Attack(Unit defender)

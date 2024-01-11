@@ -12,5 +12,8 @@ namespace C_II_1stAssignment
 
         static public List<Unit> AllRangedUnits = new List<Unit>();
 
+        static public List<Unit> AllRobots = new List<Unit>();
+        static public List<Unit> AllHumans = new List<Unit>();
+        static public List<Unit> AllDragonborns = new List<Unit>();
     }
 }
