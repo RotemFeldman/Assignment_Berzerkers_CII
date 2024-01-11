@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//  C#II (Dor Ben Dor)  //
+// Rotem Feldman - OOP3 //
+//////////////////////////
 
 namespace C_II_1stAssignment
 {
