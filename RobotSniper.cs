@@ -9,7 +9,7 @@ namespace C_II_1stAssignment
         public override Race UnitRace { get; set; } = Race.Robot;
         public override int Damage { get; set; } = 40;
         public override int HP { get; set; } = 30;
-        public override float ChanceToActivateAbility { get; set; } = 0.75f;
+        public override float ChanceToActivateAbility { get; set; } = 0.5f;
         public override float Range { get; set; } = 50;
         public override int AmmoPerReload { get; set; } = 1;
 
@@ -21,7 +21,11 @@ namespace C_II_1stAssignment
                 return;
             }
 
-            if(CheckAbility())
+            if (defender is HeavyUnit)
+            {
+                Attack(defender);
+            }
+            else if(CheckAbility())
             {
                 Attack(defender);
             }

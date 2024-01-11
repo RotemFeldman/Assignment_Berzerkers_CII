@@ -38,13 +38,11 @@ namespace C_II_1stAssignment
             Human, Dragonborn, Robot
         }
 
-        public abstract void Attack(Unit defender);
-        
-
-
+        public abstract void Attack(Unit defender);       
         public abstract void Defend(Unit attacker, int dmg);
 
-        public void Heal(int amount)
+
+        public virtual void Heal(int amount)
         {
             HP += amount;
         }
