@@ -8,7 +8,7 @@ namespace C_II_1stAssignment
     {
         public override Race UnitRace { get; set; } = Race.Robot;
         public override int Damage { get; set; } = 999;
-        public override int HP { get; set; } = 2;
+        public override int HP { get; set; } = 1;
         public override float ChanceToActivateAbility { get; set; } = 0.85f;
 
         private int _maxHP = 2;
