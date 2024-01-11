@@ -6,9 +6,11 @@ namespace C_II_1stAssignment
 {
     abstract class Unit
     {
-        public Unit(int damage, int hp) { Damage = damage; HP = hp; }
-        public virtual int Damage { get; set; }
-        public virtual int HP { get; set;}
+
+        public Unit() { UnitList.AllUnits.Add(this); }
+        
+        public abstract int Damage { get; set; }
+        public abstract int HP { get; set;}
         public virtual float ChanceToActivateAbility { get; set; }
         public abstract Race UnitRace { get; set; }
 

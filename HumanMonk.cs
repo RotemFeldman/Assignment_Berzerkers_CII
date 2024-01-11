@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace C_II_1stAssignment
 {
-    internal class HumanMonk : Unit
+    sealed class HumanMonk : Unit
     {
         public override Race UnitRace { get; set; } = Race.Human;
-
-        public HumanMonk(int damage, int hp, float chanceToGuard) : base(damage, hp)
-        {
-            ChanceToActivateAbility = chanceToGuard;
-        }
+        public override int Damage { get; set; } = 9;
+        public override int HP { get; set; } = 65;
+        public override float ChanceToActivateAbility { get; set; } = 0.1f;
 
         public override void Attack(Unit defender, int dmg)
         {

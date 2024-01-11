@@ -8,19 +8,22 @@ namespace C_II_1stAssignment
     {
         static void Main(string[] args)
         {
-            HumanCowboy HumanCowboy = new HumanCowboy(10,40,5f,6,0.1f);
-
-            HumanCowboy HumanCowboy2 = new HumanCowboy(10, 40, 5f, 6, 0.1f);
-
-            HumanKnight k = new HumanKnight(17,93);
-            HumanMonk m = new HumanMonk(12, 74, 0.5f);
-
+            HumanCowboy HumanCowboy = new HumanCowboy();
+            HumanCowboy HumanCowboy2 = new HumanCowboy();
+            HumanKnight k = new HumanKnight();
+            HumanMonk m = new HumanMonk();
+            
         
-            Console.WriteLine(HumanCowboy2.HP.ToString());
-            HumanCowboy.Attack(m, HumanCowboy.Damage);
+           // Console.WriteLine(HumanCowboy2.HP.ToString());
+           // HumanCowboy.Attack(HumanCowboy2, HumanCowboy.Damage);
+           // HumanCowboy.Attack(HumanCowboy2, HumanCowboy.Damage);
+           // Console.WriteLine(HumanCowboy2.HP.ToString());
+            
 
-            Console.WriteLine(HumanCowboy2.HP.ToString());
-            Console.WriteLine(m.Damage.ToString());
+            foreach (RangedUnit unit in UnitList.AllRangedUnits) { unit.Reload(); } 
+
+            foreach (Unit unit in UnitList.AllUnits) { Console.WriteLine(unit.ToString()); }
+
         }
     }
 }

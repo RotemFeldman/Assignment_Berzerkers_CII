@@ -6,20 +6,19 @@ namespace C_II_1stAssignment
 {
     abstract class RangedUnit : Unit
     {
-        public virtual float Range { get; set; }
-        public virtual bool InRange { get; set; }
-        public int AmmoPerReload { get; set; }
+        public RangedUnit() {
+            _ammoLeft = AmmoPerReload;
+            UnitList.AllRangedUnits.Add(this);
+        }
+        
+        public abstract float Range { get; set; }
+        public abstract bool InRange { get; set; }
+        public abstract int AmmoPerReload { get; set; }
         
 
         protected int _ammoLeft;
 
-        protected RangedUnit(int damage, int hp, float range, int ammoPerReload, float chanceToActivateAbility) : base(damage, hp)
-        {
-            Range = range;
-            AmmoPerReload = ammoPerReload;
-            ChanceToActivateAbility = chanceToActivateAbility;
-            _ammoLeft = ammoPerReload;
-        }
+        
 
 
 

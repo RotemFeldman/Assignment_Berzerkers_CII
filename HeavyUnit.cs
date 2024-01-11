@@ -6,9 +6,7 @@ namespace C_II_1stAssignment
 {
     abstract class HeavyUnit : Unit
     {
-        protected HeavyUnit(int damage, int hp) : base(damage, hp) 
-        {
-        }
+        
 
         public int Fortification {  get; set; }
 

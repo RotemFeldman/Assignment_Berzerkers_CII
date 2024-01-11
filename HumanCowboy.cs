@@ -8,11 +8,13 @@ namespace C_II_1stAssignment
     {
         public override Race UnitRace { get; set; } = Race.Human;
         public override bool InRange { get ; set; } = true;
+        public override int Damage { get; set; } = 12;
+        public override int HP { get; set; } = 45;
+        public override float Range { get; set; } = 20f;
+        public override int AmmoPerReload { get; set; } = 6;
 
         private bool _retaliate = true;
-        public HumanCowboy(int damage, int hp, float range, int ammoPerReload, float chanceToMultiShot) : base(damage, hp, range, ammoPerReload, chanceToMultiShot)
-        {            
-        }
+        
 
         public override void Defend(Unit attacker, int dmg)
         {
