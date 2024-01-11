@@ -13,7 +13,7 @@ namespace C_II_1stAssignment
         
         public abstract float Range { get; set; }
         public abstract bool InRange { get; set; }
-        public abstract int AmmoPerReload { get; set; }
+        public virtual int AmmoPerReload { get; set; }
         
 
         protected int _ammoLeft;

@@ -8,7 +8,7 @@ namespace C_II_1stAssignment
     {
         
 
-        public int Fortification {  get; set; }
+        public virtual int Fortification {  get; set; }
 
         public override void Defend(Unit attacker, int dmg)
         {

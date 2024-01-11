@@ -14,9 +14,13 @@ namespace C_II_1stAssignment
         public virtual float ChanceToActivateAbility { get; set; }
         public abstract Race UnitRace { get; set; }
 
+        // Status Effects //
+
+        public virtual bool IsBurning { get; set; }
+
         public enum Race
         {
-            Human
+            Human, Dragonborn
         }
 
         public abstract void Attack(Unit defender, int dmg);
