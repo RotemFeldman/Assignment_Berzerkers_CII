@@ -24,14 +24,14 @@ namespace C_II_1stAssignment
             }
         }
         
-        public virtual int Damage { get; set; }
-        public virtual int HP { get; set;}
-        public virtual float ChanceToActivateAbility { get; set; }
-        public virtual Race UnitRace { get; set; }
+        public virtual int Damage { get; protected set; }
+        public virtual int HP { get; protected set;}
+        public virtual float ChanceToActivateAbility { get; protected set; }
+        public virtual Race UnitRace { get; protected set; }
 
         // Status Effects //
 
-        public virtual bool IsBurning { get; set; }
+        public virtual bool IsBurning { get; protected set; }
 
         public enum Race
         {
