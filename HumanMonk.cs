@@ -8,10 +8,12 @@ namespace C_II_1stAssignment
 {
     sealed class HumanMonk : Unit
     {
-        public override Race UnitRace { get; set; } = Race.Human;
-        public override int Damage { get; set; } = 9;
-        public override int HP { get; set; } = 65;
-        public override float ChanceToActivateAbility { get; set; } = 0.1f;
+        public HumanMonk() { 
+            UnitRace = Race.Human;
+            Damage = 9;
+            HP = 65;
+            ChanceToActivateAbility = 0.1f;
+        }
 
         public override void Attack(Unit defender)
         {

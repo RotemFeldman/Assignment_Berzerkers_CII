@@ -6,10 +6,12 @@ namespace C_II_1stAssignment
 {
     sealed class RobotExploder : Unit
     {
-        public override Race UnitRace { get; set; } = Race.Robot;
-        public override int Damage { get; set; } = 999;
-        public override int HP { get; set; } = 1;
-        public override float ChanceToActivateAbility { get; set; } = 0.85f;
+        public RobotExploder() {
+            UnitRace = Race.Robot;
+            Damage = 999;
+            HP = 1;
+            ChanceToActivateAbility = 0.85f;
+        }
 
         private int _maxHP = 2;
 

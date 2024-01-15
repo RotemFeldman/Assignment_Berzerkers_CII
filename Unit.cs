@@ -24,10 +24,10 @@ namespace C_II_1stAssignment
             }
         }
         
-        public abstract int Damage { get; set; }
-        public abstract int HP { get; set;}
+        public virtual int Damage { get; set; }
+        public virtual int HP { get; set;}
         public virtual float ChanceToActivateAbility { get; set; }
-        public abstract Race UnitRace { get; set; }
+        public virtual Race UnitRace { get; set; }
 
         // Status Effects //
 

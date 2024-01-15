@@ -6,9 +6,12 @@ namespace C_II_1stAssignment
 {
     sealed class RobotBard : HeavyUnit
     {
-        public override Race UnitRace { get; set; } = Race.Robot;
-        public override int Damage { get; set; } = 5;
-        public override int HP { get; set; } = 80;
+
+        public RobotBard() { 
+            UnitRace = Race.Robot;
+            Damage = 5;
+            HP = 80;
+        }
 
         public override void Attack(Unit defender)
         {

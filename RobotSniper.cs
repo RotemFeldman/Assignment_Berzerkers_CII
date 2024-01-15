@@ -6,12 +6,16 @@ namespace C_II_1stAssignment
 {
     sealed class RobotSniper : RangedUnit
     {
-        public override Race UnitRace { get; set; } = Race.Robot;
-        public override int Damage { get; set; } = 40;
-        public override int HP { get; set; } = 30;
-        public override float ChanceToActivateAbility { get; set; } = 0.5f;
-        public override float Range { get; set; } = 50;
-        public override int AmmoPerReload { get; set; } = 1;
+
+        public RobotSniper() {
+
+            UnitRace = Race.Robot;
+            Damage = 40;
+            HP = 30;
+            ChanceToActivateAbility = 0.5f;
+            Range = 50;
+            AmmoPerReload = 1;
+        }
 
         public override void Attack(Unit defender)
         {

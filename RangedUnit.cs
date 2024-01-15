@@ -11,7 +11,7 @@ namespace C_II_1stAssignment
             UnitList.AllRangedUnits.Add(this);
         }
         
-        public abstract float Range { get; set; }
+        public virtual float Range { get; set; }
         public virtual int AmmoPerReload { get; set; }
         
 

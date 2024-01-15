@@ -6,12 +6,14 @@ namespace C_II_1stAssignment
 {
     sealed class DragonbornMage : RangedUnit
     {
-        public override Race UnitRace { get; set; } = Race.Dragonborn;
-        public override int Damage { get; set; } = 4;
-        public override int HP { get; set; } = 35;
-        public override float ChanceToActivateAbility { get; set; } = 0.33f;
-        public override float Range { get; set; } = 15f;
-        public override int AmmoPerReload { get; set; }
+        public DragonbornMage() { 
+            UnitRace = Race.Dragonborn;
+            Damage = 4;
+            HP = 35;
+            ChanceToActivateAbility = 0.33f;
+            Range = 15;
+        }
+
 
         public override void Attack(Unit defender)
         {

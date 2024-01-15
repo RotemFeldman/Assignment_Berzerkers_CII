@@ -8,9 +8,11 @@ namespace C_II_1stAssignment
 {
     sealed class HumanKnight : HeavyUnit
     {
-        public override Race UnitRace { get; set; } = Race.Human;
-        public override int Damage { get; set; } = 17;
-        public override int HP { get; set; } = 95;
+        public HumanKnight() { 
+            UnitRace = Race.Human;
+            Damage = 17;
+            HP = 95;
+        }
 
         public override void Attack(Unit defender)
         {

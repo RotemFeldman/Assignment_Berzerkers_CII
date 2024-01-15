@@ -6,10 +6,12 @@ namespace C_II_1stAssignment
 {
     sealed class DragonbornPaladin : HeavyUnit
     {
-        public override Race UnitRace { get; set; } = Race.Dragonborn;
-        public override int Damage { get; set; } = 25;
-        public override int HP { get; set; } = 90;
-        public override int Fortification { get; set; } = 3;
+        public DragonbornPaladin() { 
+            UnitRace = Race.Dragonborn;
+            Damage = 25;
+            HP = 90;
+            Fortification = 3;
+        }
 
         private bool _isAttacking;
         

@@ -6,11 +6,13 @@ namespace C_II_1stAssignment
 {
     sealed class HumanCowboy : RangedUnit
     {
-        public override Race UnitRace { get; set; } = Race.Human;
-        public override int Damage { get; set; } = 12;
-        public override int HP { get; set; } = 45;
-        public override float Range { get; set; } = 20f;
-        public override int AmmoPerReload { get; set; } = 6;
+        public HumanCowboy() { 
+            UnitRace = Race.Human;
+            Damage = 12;
+            HP = 45;
+            Range = 20f;
+            AmmoPerReload = 6;
+        }
 
         private bool _retaliate = true;
         
