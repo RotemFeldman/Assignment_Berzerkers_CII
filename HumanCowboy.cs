@@ -8,18 +8,23 @@ namespace C_II_1stAssignment
     {
         public HumanCowboy() { 
             UnitRace = Race.Human;
-            Damage = 12;
+            Damage = new Dice(4,4,+4);
             HP = 45;
             Range = 20f;
             AmmoPerReload = 6;
+            CarryCapacity = 8;
+            HitChance = new Dice(2,8,+2);
+            DefenseRating = new Dice(1,8,+3);
         }
 
         private bool _retaliate = true;
         
 
-        public override void Defend(Unit attacker, int dmg)
+        public override void Defend(Unit attacker)
         {
+            int dmg = attacker.Damage.Roll();
             ApplyDamage(dmg);
+            DefensePrompt(attacker, dmg);
             
             if(HP > 0 && _retaliate && !(attacker is RangedUnit))
             {
@@ -42,6 +47,8 @@ namespace C_II_1stAssignment
                 return;
             }
 
+            if (!HitChanceCheck(defender)) { return; }
+
             for (int i = 0; i < _ammoLeft; i++)
             {
                 if (!CheckAbility())
@@ -54,12 +61,12 @@ namespace C_II_1stAssignment
                 }
             }
 
-            defender.Defend(this, Damage);
+            defender.Defend(this);
             _ammoLeft--;
 
             for (int j = 0; j < abilityCount; j++)
             {
-                defender.Defend(this, Damage);
+                defender.Defend(this);
 
                 _ammoLeft--;
             }

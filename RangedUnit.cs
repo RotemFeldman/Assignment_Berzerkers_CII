@@ -14,13 +14,9 @@ namespace C_II_1stAssignment
         public virtual float Range { get; protected set; }
         public virtual int AmmoPerReload { get; protected set; }
         
-
         protected int _ammoLeft;
 
         
-
-
-
         public virtual void Reload() => _ammoLeft = AmmoPerReload;
 
         

@@ -33,7 +33,7 @@ namespace C_II_1stAssignment
             return ret;
         }
 
-        public void UpdateModifier(int newModValue)
+        public void SetModifier(int newModValue)
         {
             Modifier = newModValue;
         }

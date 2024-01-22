@@ -18,6 +18,8 @@ namespace C_II_1stAssignment
 
         public override void Attack(Unit defender)
         {
+            if (!HitChanceCheck(defender)) { return; }
+
             defender.Defend(this);
 
             if (!IsDead)
@@ -33,7 +35,7 @@ namespace C_II_1stAssignment
 
             ApplyDamage(dmg);
 
-            Damage.UpdateModifier(Damage.Modifier + 2);
+            Damage.SetModifier(Damage.Modifier + 2);
         }
     }
 }

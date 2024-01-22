@@ -10,11 +10,13 @@ namespace C_II_1stAssignment
         public RobotSniper() {
 
             UnitRace = Race.Robot;
-            Damage = 40;
+            Damage = new Dice(2, 20, -5);
             HP = 30;
-            ChanceToActivateAbility = 0.5f;
             Range = 50;
             AmmoPerReload = 1;
+            CarryCapacity = 5;
+            HitChance = new Dice(2, 20, 0);
+            DefenseRating = new Dice(2,4,+2);
         }
 
         public override void Attack(Unit defender)
@@ -25,20 +27,17 @@ namespace C_II_1stAssignment
                 return;
             }
 
-            if (defender is HeavyUnit)
-            {
-                Attack(defender);
-            }
-            else if(CheckAbility())
-            {
-                Attack(defender);
-            }
+            if(!HitChanceCheck(defender)) { return; }
+
+            Attack(defender);
 
             _ammoLeft--;
         }
 
-        public override void Defend(Unit attacker, int dmg)
+        public override void Defend(Unit attacker)
         {
+            int dmg = attacker.Damage.Roll();
+
             ApplyDamage(dmg);
         }
     }

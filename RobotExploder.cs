@@ -8,26 +8,34 @@ namespace C_II_1stAssignment
     {
         public RobotExploder() {
             UnitRace = Race.Robot;
-            Damage = 999;
+            Damage = new Dice(5, 10, +10);
             HP = 1;
-            ChanceToActivateAbility = 0.85f;
+            CarryCapacity = 1;
+            HitChance = new Dice(5, 6, 0);
+            DefenseRating = new Dice(3,8,2);
         }
 
         private int _maxHP = 2;
 
         public override void Attack(Unit defender)
         {
-            defender.Defend(this, Damage);
-            HP--;
+            defender.Defend(this);
+            ApplyDamage(1);
         }
 
-        public override void Defend(Unit attacker, int dmg)
+        public override void Defend(Unit attacker)
         {
-            if (CheckAbility()) { return; }           
+            if (HitChanceCheck(attacker))
+            {
+                Console.WriteLine($"{this} evaded the attack.");
+                return;
+            }          
+
+            int dmg = attacker.Damage.Roll();
 
             ApplyDamage(dmg);
 
-            if (HP <= 0 && !(attacker is RangedUnit)) { attacker.Defend(this, Damage); }
+            if (IsDead && !(attacker is RangedUnit)) { attacker.Defend(this); }
         }
 
         public override void Heal(int amount)

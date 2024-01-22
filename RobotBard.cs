@@ -9,30 +9,35 @@ namespace C_II_1stAssignment
 
         public RobotBard() { 
             UnitRace = Race.Robot;
-            Damage = 5;
+            Damage = new Dice(2, 6, +3);
             HP = 80;
+            CarryCapacity = 25;
+            HitChance = new Dice(3,8,0);
+            DefenseRating = new Dice(4,6,0);
         }
 
         public override void Attack(Unit defender)
         {
+            int dmg = Damage.Roll() + Fortification;
+
             switch (defender.UnitRace) 
             {
                 case Race.Robot:
-                    foreach (Unit u in UnitList.AllRobots) { u.Heal(Damage + Fortification); }
+                    foreach (Unit u in UnitList.AllRobots) { u.Heal(dmg); }
                     break;
                 case Race.Dragonborn:
-                    foreach (Unit u in UnitList.AllDragonborns) { u.Defend(this,Damage + Fortification); }
+                    foreach (Unit u in UnitList.AllDragonborns) { u.Defend(this); }
                     break;
                 case Race.Human:
-                    foreach (Unit  u in UnitList.AllHumans) { u.Defend(this, Damage + Fortification); }
+                    foreach (Unit  u in UnitList.AllHumans) { u.Defend(this); }
                     break;
                     
             }   
         }
 
-        public override void Defend(Unit attacker, int dmg)
+        public override void Defend(Unit attacker)
         {
-            base.Defend(attacker, dmg);
+            base.Defend(attacker);
         }
     }
 }

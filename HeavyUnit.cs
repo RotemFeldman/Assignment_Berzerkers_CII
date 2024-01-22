@@ -15,7 +15,7 @@ namespace C_II_1stAssignment
             DefensePrompt(attacker, dmg);
 
             Fortification++;
-            DefenseRating.UpdateModifier(Fortification);
+            DefenseRating.SetModifier(Fortification);
 
             int def = DefenseRating.Roll();
 
@@ -23,10 +23,6 @@ namespace C_II_1stAssignment
                 return;
 
             ApplyDamage(dmg - def);
-        }
-       
-
-
-
+        }      
     }
 }

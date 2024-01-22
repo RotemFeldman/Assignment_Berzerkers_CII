@@ -10,28 +10,35 @@ namespace C_II_1stAssignment
     {
         public HumanMonk() { 
             UnitRace = Race.Human;
-            Damage = 9;
+            Damage = new Dice(3, 4, +1);
             HP = 65;
-            ChanceToActivateAbility = 0.1f;
+            CarryCapacity = 10;
+            HitChance = new Dice(3, 6, +3);
+            DefenseRating = new Dice(2,6,0);
         }
 
         public override void Attack(Unit defender)
         {
-            defender.Defend(this,Damage);
-            defender.Defend(this, (Damage -4) * 2);
-            defender.Defend(this, (Damage - 9) * 4);
+            if(!HitChanceCheck(defender))
+            { return; }
+
+            int originalMod = Damage.Modifier;
+
+            defender.Defend(this);
+            Damage.SetModifier(Damage.Modifier * 2);
+            defender.Defend(this);
+            Damage.SetModifier(Damage.Modifier * 4);
+            defender.Defend(this);
+
+            Damage.SetModifier(originalMod);
         }
 
-        public override void Defend(Unit attacker, int dmg)
+        public override void Defend(Unit attacker)
         {
-            if (CheckAbility())
-            {
-                Damage++;
-                Console.WriteLine("Guarded");
-                return;
-            }
+            int dmg = attacker.Damage.Roll();
 
             ApplyDamage(dmg);
+            Damage.SetModifier(Damage.Modifier + 2) ;
         }
     }
 }
