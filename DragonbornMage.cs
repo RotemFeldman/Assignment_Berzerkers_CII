@@ -8,7 +8,7 @@ namespace C_II_1stAssignment
     {
         public DragonbornMage() { 
             UnitRace = Race.Dragonborn;
-            Damage = 4;
+            Damage = new Dice(1,6,0);
             HP = 35;
             ChanceToActivateAbility = 0.33f;
             Range = 15;

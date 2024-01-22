@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//  C#II (Dor Ben Dor)  //
+// Rotem Feldman - OOP3 //
+//////////////////////////
 
 namespace C_II_1stAssignment
 {
@@ -31,6 +31,11 @@ namespace C_II_1stAssignment
 
             ret += _modifier;
             return ret;
+        }
+
+        public void UpdateModifier(int newModValue)
+        {
+            _modifier = newModValue;
         }
 
         public override string ToString()
@@ -61,7 +66,7 @@ namespace C_II_1stAssignment
 
         public override int GetHashCode()
         {
-            return (int)((_scalar + 10) * 17) + ((int)_baseDie * 17) + (_modifier * 117);
+            return (int)((_scalar + 10) * 17) + ((int)_baseDie * 19) + (_modifier * 114);
         }
     }
 }

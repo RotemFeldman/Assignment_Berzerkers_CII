@@ -9,14 +9,20 @@ namespace C_II_1stAssignment
         
         public virtual int Fortification {  get; protected set; }
 
-        public override void Defend(Unit attacker, int dmg)
+        public override void Defend(Unit attacker)
         {
-            Fortification++;
+            int dmg = attacker.Damage.Roll();
+            DefensePrompt(attacker, dmg);
 
-            if (dmg - Fortification < 0)
+            Fortification++;
+            DefenseRating.UpdateModifier(Fortification);
+
+            int def = DefenseRating.Roll();
+
+            if (dmg - def < 0)
                 return;
 
-            ApplyDamage(dmg - Fortification);
+            ApplyDamage(dmg - def);
         }
        
 
