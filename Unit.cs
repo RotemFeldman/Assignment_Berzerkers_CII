@@ -42,10 +42,6 @@ namespace C_II_1stAssignment
             Human, Dragonborn, Robot
         }
 
-        public enum Weather
-        {
-
-        }
 
         public abstract void Attack(Unit defender);       
         public abstract void Defend(Unit attacker);
