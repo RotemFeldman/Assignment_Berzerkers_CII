@@ -2,10 +2,13 @@
 // Rotem Feldman - OOP3 //
 //////////////////////////
 
+using System.Reflection.Metadata;
+
 namespace C_II_1stAssignment
 {
     sealed class HumanCowboy : RangedUnit
     {
+
         public HumanCowboy() { 
             UnitRace = Race.Human;
             Damage = new Dice(4,4,+4);
@@ -18,7 +21,7 @@ namespace C_II_1stAssignment
         }
 
         private bool _retaliate = true;
-        
+        private double _abilityChance = 0.2;
 
         public override void Defend(Unit attacker)
         {
@@ -73,6 +76,14 @@ namespace C_II_1stAssignment
 
             _retaliate = true;
 
+        }
+
+        private bool CheckAbility()
+        {
+            if (Random.Shared.NextDouble() < _abilityChance)
+                return true;
+
+            return false;
         }
     }
 }

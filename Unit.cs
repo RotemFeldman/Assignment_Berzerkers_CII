@@ -26,7 +26,6 @@ namespace C_II_1stAssignment
         
         public virtual Dice Damage { get; protected set; }
         public virtual int HP { get; protected set;}
-        public virtual float ChanceToActivateAbility { get; protected set; }
         public virtual Race UnitRace { get; protected set; }
         public virtual int CarryCapacity { get; protected set; }
         public virtual Dice HitChance { get; protected set; }
@@ -71,13 +70,7 @@ namespace C_II_1stAssignment
 
 
 
-        protected bool CheckAbility()
-        {
-            if (Random.Shared.NextDouble() < ChanceToActivateAbility)
-                return true;
 
-            return false;
-        }
 
         // Rolls
 
