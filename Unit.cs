@@ -36,7 +36,7 @@ namespace C_II_1stAssignment
 
         // Status Effects //
 
-        public virtual bool IsBurning { get; set; }
+        public virtual bool IsMarked { get; set; }
 
         public enum Race
         {

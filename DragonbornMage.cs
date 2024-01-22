@@ -10,42 +10,44 @@ namespace C_II_1stAssignment
             UnitRace = Race.Dragonborn;
             Damage = new Dice(1,6,0);
             HP = 35;
-            ChanceToActivateAbility = 0.33f;
             Range = 15;
+            CarryCapacity = 7;
+            HitChance = new Dice(3, 6, -2);
+            DefenseRating = new Dice(1,10,-1);
         }
 
 
         public override void Attack(Unit defender)
         {
-            defender.IsBurning = true;
-
-            if (CheckAbility())
+            for (int i = 0; i < 5 ; i++)
             {
-                defender.Defend(this, Damage + (Damage / 2));
-                defender.Defend(this, Damage + (Damage / 2));
-                defender.Defend(this, Damage + (Damage / 2));
-                defender.Defend(this, Damage + (Damage / 2));
-                defender.Defend(this, Damage + (Damage / 2));
+                AttackSequence(defender);
             }
-            else
-            {
-                defender.Defend(this, Damage);
-                defender.Defend(this, Damage);
-                defender.Defend(this, Damage);
-                defender.Defend(this, Damage);
-                defender.Defend(this, Damage);
-            }
+                    
         }
 
-        public override void Defend(Unit attacker, int dmg)
+        public override void Defend(Unit attacker)
         {
-            if (attacker.IsBurning)
+            if (attacker.IsMarked)
             {
-                attacker.IsBurning = false;
+                attacker.IsMarked = false;
+                Console.WriteLine($"{attacker} was under the infulence of {this} spell and missed.");
                 return;
             }
 
+            int dmg = attacker.Damage.Roll();
+            DefensePrompt(attacker, dmg);
+
             ApplyDamage(dmg);
+        }
+
+        private void AttackSequence(Unit defender)
+        {
+            if (!HitChanceCheck(defender))
+            { return; }
+
+            defender.Defend(this);
+            defender.IsMarked = true;
         }
     }
 }

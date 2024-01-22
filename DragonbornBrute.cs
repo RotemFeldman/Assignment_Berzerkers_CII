@@ -8,24 +8,32 @@ namespace C_II_1stAssignment
         public DragonbornBrute()
         {
             UnitRace = Race.Dragonborn;
-            Damage = 20;
+            Damage = new Dice(4, 6, 0);
             HP = 55;
+            CarryCapacity = 13;
+            HitChance = new Dice(4, 6,0);
+            DefenseRating = new Dice(2, 4,0);
         }
         
 
         public override void Attack(Unit defender)
         {
-            defender.Defend(this, Damage);
+            defender.Defend(this);
 
-            if (HP > 0) 
-                HP += Convert.ToInt32(Damage * 0.33);
+            if (!IsDead)
+            {
+                int heal = DefenseRating.Roll();
+                HP += heal;
+            }
         }
 
-        public override void Defend(Unit attacker, int dmg)
+        public override void Defend(Unit attacker)
         {
+            int dmg = attacker.Damage.Roll();
+
             ApplyDamage(dmg);
 
-            Damage += 2;
+            Damage.UpdateModifier(Damage.Modifier + 2);
         }
     }
 }
