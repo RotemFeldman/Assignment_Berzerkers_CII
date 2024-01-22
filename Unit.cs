@@ -30,7 +30,6 @@ namespace C_II_1stAssignment
         public virtual int CarryCapacity { get; protected set; }
         public virtual Dice HitChance { get; protected set; }
         public virtual Dice DefenseRating { get; protected set; }
-        public virtual Weather  WeatherEffect { get; protected set; }
         public virtual bool IsDead { get; protected set; } = false;
 
         // Status Effects //
@@ -72,6 +71,13 @@ namespace C_II_1stAssignment
 
         protected bool HitChanceCheck(Unit defender)
         {
+            if(Weather.CurrentWeather == Weather.WeatherEffect.Foggy)
+            {
+                return (HitChanceCheckFoggy(defender));
+                 
+            }
+
+
             int hit = HitChance.Roll();
             int dr = defender.DefenseRating.Roll();
 
@@ -84,6 +90,30 @@ namespace C_II_1stAssignment
                 MissPrompt();
                 return false;
             }
+        }
+
+        private bool HitChanceCheckFoggy(Unit defender)
+        {
+
+            int hit = HitChance.Roll();
+            int dr = defender.DefenseRating.Roll();
+
+            bool first = hit >= dr;
+
+            hit = HitChance.Roll();
+            dr = defender.DefenseRating.Roll();
+
+            bool second = hit >= dr;
+
+
+            if (!first || !second)
+            {
+                Console.WriteLine("The foggy weather caused the attack to miss.");
+                return false;
+            }
+            else
+                return true;
+            
         }
 
 

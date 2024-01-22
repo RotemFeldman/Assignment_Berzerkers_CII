@@ -45,6 +45,8 @@ namespace C_II_1stAssignment
                 if (!ContinueFight(BlueTeam, RedTeam))
                     break;
                 Console.WriteLine();
+
+                Weather.CheckWeather();
             }
 
             if(BlueTeam.Count > 0)
