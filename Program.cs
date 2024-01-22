@@ -26,21 +26,21 @@ namespace C_II_1stAssignment
             RedTeam.Add(paladin);
 
 
-            int BlueCount = 0;
-            int RedCount = 0;
+            int BlueIndex = Random.Shared.Next(0,BlueTeam.Count -1);
+            int RedIndex = Random.Shared.Next(0,RedTeam.Count -1);
 
             bool _bothTeamsAlive = true;
             
 
             while(_bothTeamsAlive)
             {
-                BlueAttack(BlueCount);
+                BlueAttack(BlueIndex);
 
                 if (!ContinueFight(BlueTeam, RedTeam))
                     break;
                 Console.WriteLine();
 
-                RedAttack(RedCount);
+                RedAttack(RedIndex);
 
                 if (!ContinueFight(BlueTeam, RedTeam))
                     break;
@@ -68,13 +68,13 @@ namespace C_II_1stAssignment
                 if (RedTeam[def].IsDead)
                 {
                     RedTeam.Remove(RedTeam[def]);
-                    if (RedCount > RedTeam.Count - 1)
-                        RedCount = 0;
+                    if (RedIndex > RedTeam.Count - 1)
+                        RedIndex = 0;
                 }
 
-                BlueCount++;
-                if(BlueCount > BlueTeam.Count -1)
-                    BlueCount = 0;
+                BlueIndex++;
+                if(BlueIndex > BlueTeam.Count -1)
+                    BlueIndex = 0;
             }
 
             void RedAttack(int i)
@@ -86,13 +86,13 @@ namespace C_II_1stAssignment
                 if (BlueTeam[def].IsDead)
                 {
                     BlueTeam.Remove(BlueTeam[def]);
-                    if (BlueCount > BlueTeam.Count - 1)
-                        BlueCount = 0;
+                    if (BlueIndex > BlueTeam.Count - 1)
+                        BlueIndex = 0;
                 }
 
-                RedCount++;
-                if (RedCount > RedTeam.Count -1)
-                    RedCount = 0;
+                RedIndex++;
+                if (RedIndex > RedTeam.Count -1)
+                    RedIndex = 0;
             }
 
             bool ContinueFight(List<Unit> blue, List<Unit> red)
