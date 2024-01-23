@@ -18,6 +18,7 @@ namespace C_II_1stAssignment
 
         public override void Attack(Unit defender)
         {
+            AttackPrompt(defender);
             if (!HitChanceCheck(defender)) { return; }
 
             defender.Defend(this);
@@ -32,6 +33,7 @@ namespace C_II_1stAssignment
         public override void Defend(Unit attacker)
         {
             int dmg = attacker.Damage.Roll();
+            DefensePrompt(attacker, dmg);
 
             ApplyDamage(dmg);
 

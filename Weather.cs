@@ -67,9 +67,9 @@ namespace C_II_1stAssignment
                 }
             }
 
-            if(_changeweather)
+            if (_changeweather)
             {
-                CurrentWeather = (WeatherEffect)Random.Shared.Next(1,4);
+                CurrentWeather = (WeatherEffect)Random.Shared.Next(1, 4);
 
                 switch (CurrentWeather)
                 {
@@ -89,22 +89,24 @@ namespace C_II_1stAssignment
 
                 }
             }
-
-            switch(CurrentWeather)
+            else
             {
-                case WeatherEffect.None:
-                    Console.WriteLine(NONE_STAYS);
-                    break;
-                case WeatherEffect.Foggy:
-                    Console.WriteLine(FOG_STAYS);
-                    break;
-                case WeatherEffect.Stormy:
-                    Console.WriteLine(STORM_STAYS);
-                    break;
-                case WeatherEffect.Sunny:
-                    Console.WriteLine(SUNNY_STAYS);
-                    break;
-                    
+                switch (CurrentWeather)
+                {
+                    case WeatherEffect.None:
+                        Console.WriteLine(NONE_STAYS);
+                        break;
+                    case WeatherEffect.Foggy:
+                        Console.WriteLine(FOG_STAYS);
+                        break;
+                    case WeatherEffect.Stormy:
+                        Console.WriteLine(STORM_STAYS);
+                        break;
+                    case WeatherEffect.Sunny:
+                        Console.WriteLine(SUNNY_STAYS);
+                        break;
+
+                }
             }
 
             _changeweather = false;

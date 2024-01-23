@@ -40,6 +40,7 @@ namespace C_II_1stAssignment
 
         public override void Attack(Unit defender)
         {
+            AttackPrompt(defender);
             _retaliate = false;
 
             int abilityCount = 0;

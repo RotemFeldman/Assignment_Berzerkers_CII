@@ -19,6 +19,7 @@ namespace C_II_1stAssignment
 
         public override void Attack(Unit defender)
         {
+            AttackPrompt(defender);
             defender.Defend(this);
             ApplyDamage(1);
         }
@@ -32,7 +33,7 @@ namespace C_II_1stAssignment
             }          
 
             int dmg = attacker.Damage.Roll();
-
+            DefensePrompt(attacker, dmg);
             ApplyDamage(dmg);
 
             if (IsDead && !(attacker is RangedUnit)) { attacker.Defend(this); }

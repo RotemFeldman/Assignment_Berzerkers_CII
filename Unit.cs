@@ -6,9 +6,9 @@ namespace C_II_1stAssignment
 {
     abstract class Unit
     {
-
         public Unit() {
-            UnitList.AllUnits.Add(this); 
+            UnitList.AllUnits.Add(this);
+            
 
             switch (UnitRace)
             {
@@ -49,6 +49,7 @@ namespace C_II_1stAssignment
         public virtual void Heal(int amount)
         {
             HP += amount;
+            Console.WriteLine($"{this} is heald for {amount} HP.");
         }
 
         protected void ApplyDamage(int dmg)

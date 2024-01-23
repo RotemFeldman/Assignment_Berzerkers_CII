@@ -19,6 +19,7 @@ namespace C_II_1stAssignment
 
         public override void Attack(Unit defender)
         {
+            AttackPrompt(defender);
             for (int i = 0; i < 5 ; i++)
             {
                 AttackSequence(defender);

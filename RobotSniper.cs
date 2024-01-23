@@ -21,6 +21,7 @@ namespace C_II_1stAssignment
 
         public override void Attack(Unit defender)
         {
+            AttackPrompt(defender);
             if(_ammoLeft <= 0)
             {
                 Reload();
@@ -37,7 +38,7 @@ namespace C_II_1stAssignment
         public override void Defend(Unit attacker)
         {
             int dmg = attacker.Damage.Roll();
-
+            DefensePrompt(attacker, dmg);
             ApplyDamage(dmg);
         }
     }

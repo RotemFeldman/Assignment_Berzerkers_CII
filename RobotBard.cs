@@ -19,6 +19,7 @@ namespace C_II_1stAssignment
         public override void Attack(Unit defender)
         {
             int dmg = Damage.Roll() + Fortification;
+            Console.WriteLine("RobotBard Targets " + (defender)) ;
 
             switch (defender.UnitRace) 
             {

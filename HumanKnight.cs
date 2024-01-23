@@ -20,6 +20,7 @@ namespace C_II_1stAssignment
 
         public override void Attack(Unit defender)
         {
+            AttackPrompt(defender);
             if (!HitChanceCheck(defender))
                 return;
 
