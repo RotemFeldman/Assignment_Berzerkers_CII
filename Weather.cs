@@ -9,7 +9,7 @@ namespace C_II_1stAssignment
     public static class Weather
     {
 
-        #region Strings 
+        #region Const Strings 
 
         const string NONE_STAYS = "The weather is clear.";
         const string FOG_ANNOUNCMENT = "Heavy fog is setting in.";
