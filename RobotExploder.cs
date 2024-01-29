@@ -13,6 +13,7 @@ namespace C_II_1stAssignment
             CarryCapacity = 1;
             HitChance = new Dice(5, 6, 0);
             DefenseRating = new Dice(3,8,2);
+            Name = "Robot Exploder";
         }
 
         private int _maxHP = 2;

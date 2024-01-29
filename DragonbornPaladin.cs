@@ -14,6 +14,7 @@ namespace C_II_1stAssignment
             CarryCapacity = 15;
             HitChance = new Dice(1, 10, +2);
             DefenseRating = new Dice(2,6,Fortification);
+            Name = "Dragonborn Paladin";
         }
 
         private bool _isAttacking;

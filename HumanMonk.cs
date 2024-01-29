@@ -15,6 +15,7 @@ namespace C_II_1stAssignment
             CarryCapacity = 10;
             HitChance = new Dice(3, 6, +3);
             DefenseRating = new Dice(2,6,0);
+            Name = "Humanm Monk";
         }
 
         public override void Attack(Unit defender)

@@ -18,6 +18,7 @@ namespace C_II_1stAssignment
             CarryCapacity = 8;
             HitChance = new Dice(2,8,+2);
             DefenseRating = new Dice(1,8,+3);
+            Name = "Human Cowboy";
         }
 
         private bool _retaliate = true;

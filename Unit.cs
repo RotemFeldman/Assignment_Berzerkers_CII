@@ -31,6 +31,7 @@ namespace C_II_1stAssignment
         public virtual Dice HitChance { get; protected set; }
         public virtual Dice DefenseRating { get; protected set; }
         public virtual bool IsDead { get; protected set; } = false;
+        public virtual string Name { get; protected set; }
 
         // Status Effects //
 
@@ -49,7 +50,7 @@ namespace C_II_1stAssignment
         public virtual void Heal(int amount)
         {
             HP += amount;
-            Console.WriteLine($"{this} is heald for {amount} HP.");
+            Console.WriteLine($"{this.Name} is heald for {amount} HP.");
         }
 
         protected void ApplyDamage(int dmg)
@@ -60,7 +61,7 @@ namespace C_II_1stAssignment
             if (HP <= 0)
             {
                 IsDead = true;
-                Console.WriteLine($"{this} is dead.");
+                Console.WriteLine($"{this.Name} is dead.");
             }
         }
 
@@ -125,12 +126,12 @@ namespace C_II_1stAssignment
 
         protected void DefensePrompt(Unit attacker, int dmg)
         {
-            Console.WriteLine($"{attacker} is attaking {this} for {dmg} damage.");
+            Console.WriteLine($"{attacker.Name} is attaking {this.Name} for {dmg} damage.");
         }
 
         protected void DamagePrompt(int dmg)
         {
-            Console.WriteLine($"{this} lost {dmg} HP.");
+            Console.WriteLine($"{this.Name} lost {dmg} HP.");
         }
 
         protected void MissPrompt()
@@ -140,7 +141,7 @@ namespace C_II_1stAssignment
 
         protected void AttackPrompt(Unit defender)
         {
-            Console.WriteLine($"{this} is attacking {defender}.");
+            Console.WriteLine($"{this.Name} is attacking {defender.Name}.");
         }
 
         #endregion

@@ -14,6 +14,7 @@ namespace C_II_1stAssignment
             CarryCapacity = 7;
             HitChance = new Dice(3, 6, -2);
             DefenseRating = new Dice(1,10,-1);
+            Name = "Dragonborn Mage";
         }
 
 

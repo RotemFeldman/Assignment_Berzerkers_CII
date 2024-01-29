@@ -16,6 +16,7 @@ namespace C_II_1stAssignment
             CarryCapacity = 20;
             HitChance = new Dice(1,10, +1);
             DefenseRating = new Dice(1,10,Fortification);
+            Name = "Human Knight";
         }
 
         public override void Attack(Unit defender)

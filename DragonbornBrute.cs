@@ -13,6 +13,7 @@ namespace C_II_1stAssignment
             CarryCapacity = 13;
             HitChance = new Dice(4, 6,0);
             DefenseRating = new Dice(2, 4,0);
+            Name = "Dragonborn Brute";
         }
         
 

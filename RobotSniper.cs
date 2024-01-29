@@ -17,6 +17,7 @@ namespace C_II_1stAssignment
             CarryCapacity = 5;
             HitChance = new Dice(2, 20, 0);
             DefenseRating = new Dice(2,4,+2);
+            Name = "Robot Sniper";
         }
 
         public override void Attack(Unit defender)
