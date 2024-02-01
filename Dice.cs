@@ -7,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace C_II_1stAssignment
 {
-    struct Dice
+    struct Dice : IRandomProvider
     {
         private uint _scalar;
         private uint _baseDie;

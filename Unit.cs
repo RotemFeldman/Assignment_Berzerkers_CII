@@ -6,9 +6,9 @@ namespace C_II_1stAssignment
 {
     abstract class Unit
     {
-        public Unit() {
+        public Unit(IRandomProvider randomProvider) {
             UnitList.AllUnits.Add(this);
-            
+            RandomProvider = randomProvider;
 
             switch (UnitRace)
             {
@@ -24,6 +24,7 @@ namespace C_II_1stAssignment
             }
         }
         
+        public virtual IRandomProvider RandomProvider { get; protected set; }
         public virtual Dice Damage { get; protected set; }
         public virtual int HP { get; protected set;}
         public virtual Race UnitRace { get; protected set; }
