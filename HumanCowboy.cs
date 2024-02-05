@@ -12,13 +12,20 @@ namespace C_II_1stAssignment
         public HumanCowboy(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating) 
         { 
             UnitRace = Race.Human;
-            Damage = new Dice(4,4,+4);
             HP = 45;
             Range = 20f;
             AmmoPerReload = 6;
             CarryCapacity = 8;
-            HitChance = new Dice(2,8,+2);
-            DefenseRating = new Dice(1,8,+3);
+            Name = "Human Cowboy";
+        }
+
+        public HumanCowboy() : base()
+        {
+            UnitRace = Race.Human;
+            HP = 45;
+            Range = 20f;
+            AmmoPerReload = 6;
+            CarryCapacity = 8;
             Name = "Human Cowboy";
         }
 

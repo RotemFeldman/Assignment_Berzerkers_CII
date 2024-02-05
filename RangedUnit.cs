@@ -11,6 +11,12 @@ namespace C_II_1stAssignment
             _ammoLeft = AmmoPerReload;
             UnitList.AllRangedUnits.Add(this);
         }
+
+        public RangedUnit() : base()
+        {
+            _ammoLeft = AmmoPerReload;
+            UnitList.AllRangedUnits.Add(this);
+        }
         
         public virtual float Range { get; protected set; }
         public virtual int AmmoPerReload { get; protected set; }

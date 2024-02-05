@@ -11,11 +11,16 @@ namespace C_II_1stAssignment
         public HumanMonk(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating) 
         { 
             UnitRace = Race.Human;
-            Damage = new Dice(3, 4, +1);
             HP = 65;
             CarryCapacity = 10;
-            HitChance = new Dice(3, 6, +3);
-            DefenseRating = new Dice(2,6,0);
+            Name = "Humanm Monk";
+        }
+
+        public HumanMonk() : base()
+        {
+            UnitRace = Race.Human;
+            HP = 65;
+            CarryCapacity = 10;
             Name = "Humanm Monk";
         }
 

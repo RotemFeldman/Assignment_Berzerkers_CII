@@ -14,6 +14,14 @@ namespace C_II_1stAssignment
             Name = "Robot Exploder";
         }
 
+        public RobotExploder() : base()
+        {
+            UnitRace = Race.Robot;
+            HP = 1;
+            CarryCapacity = 1;
+            Name = "Robot Exploder";
+        }
+
         private int _maxHP = 2;
 
         public override void Attack(Unit defender)

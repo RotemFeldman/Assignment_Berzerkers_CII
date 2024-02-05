@@ -15,6 +15,15 @@ namespace C_II_1stAssignment
             Name = "Dragonborn Paladin";
         }
 
+        public DragonbornPaladin(): base()
+        {
+            UnitRace = Race.Dragonborn;
+            HP = 90;
+            Fortification = 3;
+            CarryCapacity = 15;
+            Name = "Dragonborn Paladin";
+        }
+
         private bool _isAttacking;
         
 

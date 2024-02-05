@@ -6,6 +6,28 @@ namespace C_II_1stAssignment
 {
     abstract class Unit
     {
+        public Unit()
+        {
+            Damage = new Dice(1, 1, 1);
+            HitChance = new Dice(1,1,1);
+            DefenseRating = new Dice(1,1,1);
+
+            UnitList.AllUnits.Add(this);
+
+            switch (UnitRace)
+            {
+                case Race.Human:
+                    UnitList.AllHumans.Add(this);
+                    break;
+                case Race.Dragonborn:
+                    UnitList.AllDragonborns.Add(this);
+                    break;
+                case Race.Robot:
+                    UnitList.AllRobots.Add(this);
+                    break;
+            }
+        }
+
         public Unit(IRandomProvider damage , IRandomProvider hitChance, IRandomProvider defenseRating) 
         {
             Damage = damage;

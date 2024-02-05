@@ -6,7 +6,11 @@ namespace C_II_1stAssignment
 {
     abstract class HeavyUnit : Unit
     {
-        protected HeavyUnit(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating)
+        public HeavyUnit(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating)
+        {
+        }
+
+        public HeavyUnit(): base()
         {
         }
 

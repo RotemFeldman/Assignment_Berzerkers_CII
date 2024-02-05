@@ -17,6 +17,16 @@ namespace C_II_1stAssignment
             Name = "Robot Sniper";
         }
 
+        public RobotSniper() : base()
+        {
+            UnitRace = Race.Robot;
+            HP = 30;
+            Range = 50;
+            AmmoPerReload = 1;
+            CarryCapacity = 5;
+            Name = "Robot Sniper";
+        }
+
         public override void Attack(Unit defender)
         {
             AttackPrompt(defender);

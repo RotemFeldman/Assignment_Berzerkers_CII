@@ -15,6 +15,14 @@ namespace C_II_1stAssignment
             Name = "Robot Bard";
         }
 
+        public RobotBard() : base()
+        {
+            UnitRace = Race.Robot;
+            HP = 80;
+            CarryCapacity = 25;
+            Name = "Robot Bard";
+        }
+
         public override void Attack(Unit defender)
         {
             int dmg = Damage.Roll() + Fortification;

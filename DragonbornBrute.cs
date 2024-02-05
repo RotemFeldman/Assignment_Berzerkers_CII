@@ -12,6 +12,13 @@ namespace C_II_1stAssignment
             CarryCapacity = 13;
             Name = "Dragonborn Brute";
         }
+        public DragonbornBrute() : base()
+        {
+            UnitRace = Race.Dragonborn;
+            HP = 55;
+            CarryCapacity = 13;
+            Name = "Dragonborn Brute";
+        }
         
 
         public override void Attack(Unit defender)

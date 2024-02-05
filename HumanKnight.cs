@@ -12,11 +12,16 @@ namespace C_II_1stAssignment
         public HumanKnight(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating)
         { 
             UnitRace = Race.Human;
-            Damage = new Dice(3, 6, Fortification);
             HP = 95;
             CarryCapacity = 20;
-            HitChance = new Dice(1,10, +1);
-            DefenseRating = new Dice(1,10,Fortification);
+            Name = "Human Knight";
+        }
+
+        public HumanKnight() : base()
+        {
+            UnitRace = Race.Human;
+            HP = 95;
+            CarryCapacity = 20;
             Name = "Human Knight";
         }
 
