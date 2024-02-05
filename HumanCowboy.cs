@@ -9,7 +9,8 @@ namespace C_II_1stAssignment
     sealed class HumanCowboy : RangedUnit
     {
 
-        public HumanCowboy() { 
+        public HumanCowboy(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating) 
+        { 
             UnitRace = Race.Human;
             Damage = new Dice(4,4,+4);
             HP = 45;

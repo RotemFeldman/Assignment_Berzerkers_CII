@@ -10,8 +10,8 @@ namespace C_II_1stAssignment
         {
             CombatManager combat = new CombatManager();
 
-            List<Unit> red = combat.CreatTeam(5, Unit.Race.Human);
-            List<Unit> blue = combat.CreatTeam(5, Unit.Race.Robot);
+           // List<Unit> red = combat.CreatTeam(5, Unit.Race.Human);
+           // List<Unit> blue = combat.CreatTeam(5, Unit.Race.Robot);
 
            // combat.DoCombat(blue, red);
 
@@ -23,7 +23,7 @@ namespace C_II_1stAssignment
             Console.WriteLine(bag1.GetHashCode());
             Console.WriteLine(bag2.GetHashCode());
 
-            if (bag1.Equals(bag2))
+            if (bag1.Equals( bag2))
             {
                 Console.WriteLine("true");
             }

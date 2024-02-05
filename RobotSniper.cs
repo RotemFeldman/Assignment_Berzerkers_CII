@@ -7,16 +7,13 @@ namespace C_II_1stAssignment
     sealed class RobotSniper : RangedUnit
     {
 
-        public RobotSniper() {
-
+        public RobotSniper(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating)
+        {
             UnitRace = Race.Robot;
-            Damage = new Dice(2, 20, -5);
             HP = 30;
             Range = 50;
             AmmoPerReload = 1;
             CarryCapacity = 5;
-            HitChance = new Dice(2, 20, 0);
-            DefenseRating = new Dice(2,4,+2);
             Name = "Robot Sniper";
         }
 

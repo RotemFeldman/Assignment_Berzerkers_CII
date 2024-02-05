@@ -9,7 +9,8 @@ namespace C_II_1stAssignment
     sealed class HumanKnight : HeavyUnit
     {       
 
-        public HumanKnight() { 
+        public HumanKnight(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating)
+        { 
             UnitRace = Race.Human;
             Damage = new Dice(3, 6, Fortification);
             HP = 95;
@@ -28,7 +29,7 @@ namespace C_II_1stAssignment
             defender.Defend(this);
 
             Fortification++;
-            Damage.SetModifier(Fortification);
+            //Damage.SetModifier(Fortification);
         }
     }
 }

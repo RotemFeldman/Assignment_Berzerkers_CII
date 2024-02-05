@@ -9,7 +9,7 @@ namespace C_II_1stAssignment
     public static class Weather
     {
 
-        #region Strings 
+        #region Const Strings 
 
         const string NONE_STAYS = "The weather is clear.";
         const string FOG_ANNOUNCMENT = "Heavy fog is setting in.";
@@ -80,7 +80,7 @@ namespace C_II_1stAssignment
                     case WeatherEffect.Stormy:
                         Console.WriteLine(STORM_ANNOUNCMENT);
                         Console.WriteLine(STORM_EFFECT);
-                        StartStorm();
+                        //StartStorm();
                         break;
                     case WeatherEffect.Sunny:
                         Console.WriteLine(SUNNY_ANNOUNCMENT);
@@ -118,6 +118,7 @@ namespace C_II_1stAssignment
 
         }
 
+        /*
         static void StartStorm()
         {
             foreach(Unit u in UnitList.AllUnits)
@@ -131,19 +132,20 @@ namespace C_II_1stAssignment
                 u.HitChance.SetModifier(0);
             }
         }
+        */
 
         static void EndStorm()
         {
             foreach (Unit u in UnitList.AllUnits)
             {
                 UnitList.DamageModDic.TryGetValue(u, out int dmg);
-                u.Damage.SetModifier(dmg);
+               // u.Damage.SetModifier(dmg);
 
                 UnitList.DefenseModDic.TryGetValue(u, out int def);
-                u.DefenseRating.SetModifier(def);
+               // u.DefenseRating.SetModifier(def);
 
                 UnitList.ChanceModDic.TryGetValue(u, out int hit);
-                u.HitChance.SetModifier(hit);
+               // u.HitChance.SetModifier(hit);
             }
 
             UnitList.DamageModDic.Clear();

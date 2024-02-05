@@ -5,14 +5,11 @@ namespace C_II_1stAssignment
 {
     sealed class DragonbornBrute : Unit
     {
-        public DragonbornBrute()
+        public DragonbornBrute(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating)
         {
             UnitRace = Race.Dragonborn;
-            Damage = new Dice(4, 6, 0);
             HP = 55;
             CarryCapacity = 13;
-            HitChance = new Dice(4, 6,0);
-            DefenseRating = new Dice(2, 4,0);
             Name = "Dragonborn Brute";
         }
         
@@ -38,7 +35,7 @@ namespace C_II_1stAssignment
 
             ApplyDamage(dmg);
 
-            Damage.SetModifier(Damage.Modifier + 2);
+            //Damage.SetModifier(Damage.Modifier + 2);
         }
     }
 }

@@ -6,7 +6,12 @@ namespace C_II_1stAssignment
 {
     abstract class Unit
     {
-        public Unit() {
+        public Unit(IRandomProvider damage , IRandomProvider hitChance, IRandomProvider defenseRating) 
+        {
+            Damage = damage;
+            HitChance = hitChance;
+            DefenseRating = defenseRating;
+
             UnitList.AllUnits.Add(this);
 
             switch (UnitRace)
@@ -23,12 +28,12 @@ namespace C_II_1stAssignment
             }
         }
         
-        public virtual Dice Damage { get; protected set; }
+        public virtual IRandomProvider Damage { get; protected set; }
         public virtual int HP { get; protected set;}
         public virtual Race UnitRace { get; protected set; }
         public virtual int CarryCapacity { get; protected set; }
-        public virtual Dice HitChance { get; protected set; }
-        public virtual Dice DefenseRating { get; protected set; }
+        public virtual IRandomProvider HitChance { get; protected set; }
+        public virtual IRandomProvider DefenseRating { get; protected set; }
         public virtual bool IsDead { get; protected set; } = false;
         public virtual string Name { get; protected set; }
 

@@ -8,7 +8,8 @@ namespace C_II_1stAssignment
 {
     sealed class HumanMonk : Unit
     {
-        public HumanMonk() { 
+        public HumanMonk(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating) 
+        { 
             UnitRace = Race.Human;
             Damage = new Dice(3, 4, +1);
             HP = 65;
@@ -24,15 +25,15 @@ namespace C_II_1stAssignment
             if(!HitChanceCheck(defender))
             { return; }
 
-            int originalMod = Damage.Modifier;
+            //int originalMod = Damage.Modifier;
 
             defender.Defend(this);
-            Damage.SetModifier(Damage.Modifier * 2);
+            //Damage.SetModifier(Damage.Modifier * 2);
             defender.Defend(this);
-            Damage.SetModifier(Damage.Modifier * 4);
+            //Damage.SetModifier(Damage.Modifier * 4);
             defender.Defend(this);
 
-            Damage.SetModifier(originalMod);
+            //Damage.SetModifier(originalMod);
         }
 
         public override void Defend(Unit attacker)
@@ -42,7 +43,7 @@ namespace C_II_1stAssignment
             DefensePrompt(attacker, dmg);
 
             ApplyDamage(dmg);
-            Damage.SetModifier(Damage.Modifier + 2) ;
+            //Damage.SetModifier(Damage.Modifier + 2) ;
         }
     }
 }

@@ -7,13 +7,11 @@ namespace C_II_1stAssignment
     sealed class RobotBard : HeavyUnit
     {
 
-        public RobotBard() { 
+        public RobotBard(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating)
+        { 
             UnitRace = Race.Robot;
-            Damage = new Dice(2, 6, +3);
             HP = 80;
             CarryCapacity = 25;
-            HitChance = new Dice(3,8,0);
-            DefenseRating = new Dice(4,6,0);
             Name = "Robot Bard";
         }
 

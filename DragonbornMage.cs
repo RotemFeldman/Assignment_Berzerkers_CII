@@ -8,12 +8,9 @@ namespace C_II_1stAssignment
     {
         public DragonbornMage() { 
             UnitRace = Race.Dragonborn;
-            Damage = new Dice(1,6,0);
             HP = 35;
             Range = 15;
             CarryCapacity = 7;
-            HitChance = new Dice(3, 6, -2);
-            DefenseRating = new Dice(1,10,-1);
             Name = "Dragonborn Mage";
         }
 

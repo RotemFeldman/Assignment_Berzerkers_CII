@@ -6,14 +6,12 @@ namespace C_II_1stAssignment
 {
     sealed class DragonbornPaladin : HeavyUnit
     {
-        public DragonbornPaladin() { 
+        public DragonbornPaladin(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating): base(damage,hitChance,defenseRating) 
+        { 
             UnitRace = Race.Dragonborn;
-            Damage = new Dice(2, 10, +4);
             HP = 90;
             Fortification = 3;
             CarryCapacity = 15;
-            HitChance = new Dice(1, 10, +2);
-            DefenseRating = new Dice(2,6,Fortification);
             Name = "Dragonborn Paladin";
         }
 

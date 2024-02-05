@@ -6,7 +6,10 @@ namespace C_II_1stAssignment
 {
     abstract class HeavyUnit : Unit
     {
-        
+        protected HeavyUnit(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating)
+        {
+        }
+
         public virtual int Fortification {  get; protected set; }
 
         public override void Defend(Unit attacker)
@@ -15,7 +18,7 @@ namespace C_II_1stAssignment
             DefensePrompt(attacker, dmg);
 
             Fortification++;
-            DefenseRating.SetModifier(Fortification);
+            //DefenseRating.SetModifier(Fortification);
 
             int def = DefenseRating.Roll();
 

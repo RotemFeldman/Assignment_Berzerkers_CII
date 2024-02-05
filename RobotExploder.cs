@@ -6,13 +6,11 @@ namespace C_II_1stAssignment
 {
     sealed class RobotExploder : Unit
     {
-        public RobotExploder() {
+        public RobotExploder(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating)
+        {
             UnitRace = Race.Robot;
-            Damage = new Dice(5, 10, +10);
             HP = 1;
             CarryCapacity = 1;
-            HitChance = new Dice(5, 6, 0);
-            DefenseRating = new Dice(3,8,2);
             Name = "Robot Exploder";
         }
 

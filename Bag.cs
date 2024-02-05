@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace C_II_1stAssignment
 {
-    public struct Bag : IRandomProvider
+    public struct Bag : IRandomProvider , IEquatable<Bag>
     {
         private int[] _array;
         private List<int> _bag;
@@ -50,6 +50,8 @@ namespace C_II_1stAssignment
 
         public override string ToString()
         {
+
+            // change to stringbuilder
             string ret = string.Empty;
             for(int i = 0; i < _bag.Count - 1; i++)
             {
@@ -70,22 +72,23 @@ namespace C_II_1stAssignment
             return ret;
         }
 
-        public override bool Equals([NotNullWhen(true)] object? obj)
+        public bool Equals(Bag other)
         {
-            var bag = (Bag)obj;
+            
 
-            if(_array.Length != bag._array.Length)
+            if (_array.Length != other._array.Length)
                 return false;
-           
-            List<int> objList = new List<int>(bag._array);
 
-            for (int i = 0; i > _array.Length ; i++)
+            List<int> objList = new List<int>(other._array);
+
+            for (int i = 0; i > _array.Length; i++)
             {
-                for (int j = 0;  j < bag._array.Length ; j++)
+                for (int j = 0; j < objList.Count; j++)
                 {
+
                     if (_array[i] == objList[j])
                     {
-                        objList.RemoveAt(j);
+                        objList.Remove(j);
                         break;
                     }
                 }
@@ -95,7 +98,6 @@ namespace C_II_1stAssignment
                 return true;
             else
                 return false;
-
         }
     }
 }
