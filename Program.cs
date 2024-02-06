@@ -16,12 +16,19 @@ namespace C_II_1stAssignment
            // combat.DoCombat(blue, red);
 
             Bag bag1 = new Bag(1,1,4,5,6);
-            Bag bag2 = new Bag(1,1,4,5,6);
+            Bag bag2 = new Bag(4,5,1,6,1);
 
-            Console.WriteLine(bag1.ToString());
-            Console.WriteLine(bag2.ToString());
-            Console.WriteLine(bag1.GetHashCode());
-            Console.WriteLine(bag2.GetHashCode());
+            Console.WriteLine(bag1.Roll());
+            Console.WriteLine(bag1.Roll());
+            Console.WriteLine(bag1.Roll());
+            Console.WriteLine(bag1.Roll());
+            Console.WriteLine(bag1.Roll());
+            Console.WriteLine();
+            Console.WriteLine(bag1.Roll());
+            Console.WriteLine(bag1.Roll());
+            Console.WriteLine(bag1.Roll());
+            Console.WriteLine(bag1.Roll());
+            Console.WriteLine(bag1.Roll());
 
             if (bag1.Equals( bag2))
             {

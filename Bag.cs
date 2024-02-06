@@ -14,7 +14,7 @@ namespace C_II_1stAssignment
 
         public Bag(params int[] array) 
         {
-            _array = array;
+            _array = BubbleSortArray(array);
             _bag = new List<int>(_array);
         }
 
@@ -32,20 +32,6 @@ namespace C_II_1stAssignment
             return ret;
         }
 
-
-        private bool BagNotEmpty()
-        {
-            return _bag.Count > 0;
-        }
-
-        private void RefillBag()
-        {
-            for (int i = 0; i < _array.Length; i++)
-            {
-                _bag[i] = _array[i];
-            }
-
-        }
 
 
         public override string ToString()
@@ -74,30 +60,53 @@ namespace C_II_1stAssignment
 
         public bool Equals(Bag other)
         {
-            
-
             if (_array.Length != other._array.Length)
                 return false;
 
-            List<int> objList = new List<int>(other._array);
+            // how can i put array on stack?
+            //int[] array = BubbleSortArray(_array);
+            //int[] otherArray = BubbleSortArray(other._array);
 
-            for (int i = 0; i > _array.Length; i++)
+            for(int i = 0; i < _array.Length ; i++)
             {
-                for (int j = 0; j < objList.Count; j++)
-                {
-
-                    if (_array[i] == objList[j])
-                    {
-                        objList.Remove(j);
-                        break;
-                    }
-                }
+                if (_array[i] != other._array[i])
+                    return false;
             }
 
-            if (objList.Count == 0)
-                return true;
-            else
-                return false;
+            return true;
+            
+        }
+
+
+
+        private bool BagNotEmpty()
+        {
+            return _bag.Count > 0;
+        }
+
+        private void RefillBag()
+        {
+            for (int i = 0; i < _array.Length; i++)
+            {
+                _bag.Add(_array[i]);
+            }
+
+        }
+
+        private int[] BubbleSortArray(int[] array)
+        {
+            int[] newArray = array;
+            var n = array.Length;
+
+            for (int i = 0; i < n - 1; i++)
+                for (int j = 0; j < n - i - 1; j++)
+                    if (newArray[j] > newArray[j + 1])
+                    {
+                        var tempVar = newArray[j];
+                        newArray[j] = newArray[j + 1];
+                        newArray[j + 1] = tempVar;
+                    }
+            return newArray;
         }
     }
 }
