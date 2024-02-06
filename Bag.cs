@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//  C#II (Dor Ben Dor)  //
+// Rotem Feldman - OOP3 //
+//////////////////////////
+
 
 namespace C_II_1stAssignment
 {
-    public struct Bag : IRandomProvider , IEquatable<Bag>
+    public struct Bag : IRandomProvider , IEquatable<Bag> 
     {
         private int[] _array;
         private List<int> _bag;
@@ -60,6 +58,7 @@ namespace C_II_1stAssignment
 
         public bool Equals(Bag other)
         {
+
             if (_array.Length != other._array.Length)
                 return false;
 
@@ -77,8 +76,6 @@ namespace C_II_1stAssignment
             
         }
 
-
-
         private bool BagNotEmpty()
         {
             return _bag.Count > 0;
@@ -95,11 +92,10 @@ namespace C_II_1stAssignment
 
         private int[] BubbleSortArray(int[] array)
         {
-            int[] newArray = array;
-            var n = array.Length;
+            int[] newArray = array;            
 
-            for (int i = 0; i < n - 1; i++)
-                for (int j = 0; j < n - i - 1; j++)
+            for (int i = 0; i < array.Length - 1; i++)
+                for (int j = 0; j < array.Length - i - 1; j++)
                     if (newArray[j] > newArray[j + 1])
                     {
                         var tempVar = newArray[j];

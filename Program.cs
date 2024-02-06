@@ -10,10 +10,10 @@ namespace C_II_1stAssignment
         {
             CombatManager combat = new CombatManager();
 
-           // List<Unit> red = combat.CreatTeam(5, Unit.Race.Human);
-           // List<Unit> blue = combat.CreatTeam(5, Unit.Race.Robot);
+           List<Unit> red = combat.CreateTeam(5, Unit.Race.Human);
+           List<Unit> blue = combat.CreateTeam(5, Unit.Race.Robot);
 
-           // combat.DoCombat(blue, red);
+           combat.DoCombat(blue, red);
 
             Bag bag1 = new Bag(1,1,4,5,6);
             Bag bag2 = new Bag(4,5,1,6,1);

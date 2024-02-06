@@ -11,13 +11,13 @@ namespace C_II_1stAssignment
     {
         private uint _scalar;
         private uint _baseDie;
-        public int Modifier { get; private set; }
+        private int _modifier;
 
         public Dice (uint scalar, uint baseDie, int modifier)
         {
             _baseDie = baseDie;
             _scalar = scalar;
-            Modifier = modifier;
+            _modifier = modifier;
         }
 
         public int Roll()
@@ -29,28 +29,24 @@ namespace C_II_1stAssignment
                 ret += Random.Shared.Next(1, (int)_baseDie + 1);
             }
 
-            ret += Modifier;
+            ret += _modifier;
             return ret;
         }
 
-        public void SetModifier(int newModValue)
-        {
-            Modifier = newModValue;
-        }
 
         public override string ToString()
         {
-            if(Modifier == 0)
+            if(_modifier == 0)
             {
                 return $"{_scalar}d{_baseDie}";
             }
-            else if (Modifier > 0) 
+            else if (_modifier > 0) 
             {
-                return $"{_scalar}d{_baseDie}+{Modifier}";
+                return $"{_scalar}d{_baseDie}+{_modifier}";
             }
             else
             {
-                return $"{_scalar}d{_baseDie}{Modifier}";
+                return $"{_scalar}d{_baseDie}{_modifier}";
             }
         }
 
@@ -58,7 +54,7 @@ namespace C_II_1stAssignment
         {
             var die = (Dice)obj;
 
-            if(_scalar == die._scalar && _baseDie == die._baseDie && Modifier == die.Modifier)
+            if(_scalar == die._scalar && _baseDie == die._baseDie && _modifier == die._modifier)
                 return true;
 
             return false;
@@ -66,7 +62,7 @@ namespace C_II_1stAssignment
 
         public override int GetHashCode()
         {
-            return (int)((_scalar + 10) * 17) + ((int)_baseDie * 19) + (Modifier * 114);
+            return (int)((_scalar + 10) * 17) + ((int)_baseDie * 19) + (_modifier * 114);
         }
     }
 }

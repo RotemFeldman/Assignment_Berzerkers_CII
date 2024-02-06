@@ -8,9 +8,10 @@ namespace C_II_1stAssignment
     {
         public Unit()
         {
-            Damage = new Dice(1, 1, 1);
-            HitChance = new Dice(1,1,1);
-            DefenseRating = new Dice(1,1,1);
+            Damage = GenerateRandomIRandomProvider();
+            HitChance = GenerateRandomIRandomProvider();
+            DefenseRating = GenerateRandomIRandomProvider();
+            WeatherEffect = Weather.WeatherEffect.None;
 
             UnitList.AllUnits.Add(this);
 
@@ -33,6 +34,7 @@ namespace C_II_1stAssignment
             Damage = damage;
             HitChance = hitChance;
             DefenseRating = defenseRating;
+            WeatherEffect= Weather.WeatherEffect.None;
 
             UnitList.AllUnits.Add(this);
 
@@ -58,15 +60,19 @@ namespace C_II_1stAssignment
         public virtual IRandomProvider DefenseRating { get; protected set; }
         public virtual bool IsDead { get; protected set; } = false;
         public virtual string Name { get; protected set; }
-
-        // Status Effects //
-
-        public virtual bool IsMarked { get; set; }
+        public virtual Weather.WeatherEffect WeatherEffect { get; protected set; }
 
         public enum Race
         {
             Human, Dragonborn, Robot
         }
+
+
+        // Status Effects //
+
+        public virtual bool IsMarked { get; set; }
+
+        
 
 
         public abstract void Attack(Unit defender);       
@@ -144,9 +150,24 @@ namespace C_II_1stAssignment
             
         }
 
+        private IRandomProvider GenerateRandomIRandomProvider()
+        {
+            if(Random.Shared.Next(1,3) == 1)
+            {
+                return new Dice((uint)Random.Shared.Next(1,4),(uint)Random.Shared.Next(2,20),Random.Shared.Next(-7,8));
+            }
+            else
+            {
+                int[] array = new int[Random.Shared.Next(5,10)];
 
+                foreach (int i in array)
+                {
+                    array[i] = Random.Shared.Next(10,41);
+                }
 
-
+                return new Bag(array);
+            }
+        }
 
         #region Console Prompts
 
@@ -166,7 +187,8 @@ namespace C_II_1stAssignment
         }
 
         protected void AttackPrompt(Unit defender)
-        {
+        { 
+
             Console.WriteLine($"{this.Name} is attacking {defender.Name}.");
         }
 

@@ -35,7 +35,7 @@ namespace C_II_1stAssignment
         {
             if (HitChanceCheck(attacker))
             {
-                Console.WriteLine($"{this} evaded the attack.");
+                Console.WriteLine($"{this.Name} evaded the attack.");
                 return;
             }          
 

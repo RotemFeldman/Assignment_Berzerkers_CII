@@ -97,13 +97,7 @@ namespace C_II_1stAssignment
             }
         }
 
-        public List<Unit> CreatTeam(int teamSize, Unit.Race race)
-        {
-            return InsertTeamMembers(teamSize, race);
-        }
-
-
-        private List<Unit> InsertTeamMembers(int teamSize, Unit.Race race)
+        public List<Unit> CreateTeam(int teamSize, Unit.Race race)
         {
             List<Unit> list = new List<Unit>();
             for (int i = 0; i < teamSize; i++)

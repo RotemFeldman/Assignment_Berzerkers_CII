@@ -59,10 +59,7 @@ namespace C_II_1stAssignment
                 }
 
                 if (WeatherLength == 0)
-                {
-                    if(CurrentWeather == WeatherEffect.Stormy)
-                        EndStorm();
-
+                {                     
                     CurrentWeather = WeatherEffect.None;
                 }
             }
@@ -80,7 +77,8 @@ namespace C_II_1stAssignment
                     case WeatherEffect.Stormy:
                         Console.WriteLine(STORM_ANNOUNCMENT);
                         Console.WriteLine(STORM_EFFECT);
-                        //StartStorm();
+                        StormyEffect();
+                        
                         break;
                     case WeatherEffect.Sunny:
                         Console.WriteLine(SUNNY_ANNOUNCMENT);
@@ -118,46 +116,21 @@ namespace C_II_1stAssignment
 
         }
 
-        /*
-        static void StartStorm()
-        {
-            foreach(Unit u in UnitList.AllUnits)
-            {
-                UnitList.DamageModDic.Add(u, u.Damage.Modifier);
-                UnitList.DefenseModDic.Add(u, u.DefenseRating.Modifier);
-                UnitList.ChanceModDic.Add(u, u.HitChance.Modifier);
-
-                u.Damage.SetModifier(0);
-                u.DefenseRating.SetModifier(0);
-                u.HitChance.SetModifier(0);
-            }
-        }
-        */
-
-        static void EndStorm()
-        {
-            foreach (Unit u in UnitList.AllUnits)
-            {
-                UnitList.DamageModDic.TryGetValue(u, out int dmg);
-               // u.Damage.SetModifier(dmg);
-
-                UnitList.DefenseModDic.TryGetValue(u, out int def);
-               // u.DefenseRating.SetModifier(def);
-
-                UnitList.ChanceModDic.TryGetValue(u, out int hit);
-               // u.HitChance.SetModifier(hit);
-            }
-
-            UnitList.DamageModDic.Clear();
-            UnitList.DefenseModDic.Clear();
-            UnitList.ChanceModDic.Clear();
-        }
+        
 
         static void SunnyEffect()
         {
             foreach (Unit u in UnitList.AllUnits)
             {
-                u.Heal(Random.Shared.Next(10));
+                u.Heal(Random.Shared.Next(5));
+            }
+        }
+
+        static void StormyEffect()
+        {
+            foreach(Unit u in UnitList.AllUnits)
+            {
+                u.Attack(u);
             }
         }
 
