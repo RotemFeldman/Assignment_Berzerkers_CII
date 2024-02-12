@@ -20,7 +20,12 @@ namespace C_II_1stAssignment
             _modifier = modifier;
         }
 
-        public int Roll()
+        public int GetRandom()
+        {
+            return Roll();
+        }
+
+        private int Roll()
         {
             int ret = 0;
 

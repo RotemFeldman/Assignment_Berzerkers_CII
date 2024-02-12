@@ -16,7 +16,12 @@ namespace C_II_1stAssignment
             _bag = new List<int>(_array);
         }
 
-        public int Roll()
+        public int GetRandom()
+        {
+            return Draw();
+        }
+
+        private int Draw()
         {
             if (!BagNotEmpty())
                 RefillBag();
@@ -104,5 +109,7 @@ namespace C_II_1stAssignment
                     }
             return newArray;
         }
+
+
     }
 }

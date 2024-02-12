@@ -18,17 +18,17 @@ namespace C_II_1stAssignment
             Bag bag1 = new Bag(1,1,4,5,6);
             Bag bag2 = new Bag(4,5,1,6,1);
 
-            Console.WriteLine(bag1.Roll());
-            Console.WriteLine(bag1.Roll());
-            Console.WriteLine(bag1.Roll());
-            Console.WriteLine(bag1.Roll());
-            Console.WriteLine(bag1.Roll());
+            Console.WriteLine(bag1.GetRandom());
+            Console.WriteLine(bag1.GetRandom());
+            Console.WriteLine(bag1.GetRandom());
+            Console.WriteLine(bag1.GetRandom());
+            Console.WriteLine(bag1.GetRandom());
             Console.WriteLine();
-            Console.WriteLine(bag1.Roll());
-            Console.WriteLine(bag1.Roll());
-            Console.WriteLine(bag1.Roll());
-            Console.WriteLine(bag1.Roll());
-            Console.WriteLine(bag1.Roll());
+            Console.WriteLine(bag1.GetRandom());
+            Console.WriteLine(bag1.GetRandom());
+            Console.WriteLine(bag1.GetRandom());
+            Console.WriteLine(bag1.GetRandom());
+            Console.WriteLine(bag1.GetRandom());
 
             if (bag1.Equals( bag2))
             {

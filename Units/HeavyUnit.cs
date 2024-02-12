@@ -18,13 +18,13 @@ namespace C_II_1stAssignment
 
         public override void Defend(Unit attacker)
         {
-            int dmg = attacker.Damage.Roll();
+            int dmg = attacker.Damage.GetRandom();
             DefensePrompt(attacker, dmg);
 
             Fortification++;
             //DefenseRating.SetModifier(Fortification);
 
-            int def = DefenseRating.Roll();
+            int def = DefenseRating.GetRandom();
 
             if (dmg - def < 0)
                 return;

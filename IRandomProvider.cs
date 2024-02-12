@@ -8,6 +8,6 @@ namespace C_II_1stAssignment
 {
     public interface IRandomProvider
     {
-        int Roll();
+        public int GetRandom();
     }
 }

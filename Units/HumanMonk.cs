@@ -43,7 +43,7 @@ namespace C_II_1stAssignment
 
         public override void Defend(Unit attacker)
         {
-            int dmg = attacker.Damage.Roll();
+            int dmg = attacker.Damage.GetRandom();
 
             DefensePrompt(attacker, dmg);
 

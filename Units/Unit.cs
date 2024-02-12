@@ -112,8 +112,8 @@ namespace C_II_1stAssignment
             }
 
 
-            int hit = HitChance.Roll();
-            int dr = defender.DefenseRating.Roll();
+            int hit = HitChance.GetRandom();
+            int dr = defender.DefenseRating.GetRandom();
 
             if (hit >= dr)
             {
@@ -129,13 +129,13 @@ namespace C_II_1stAssignment
         private bool HitChanceCheckFoggy(Unit defender)
         {
 
-            int hit = HitChance.Roll();
-            int dr = defender.DefenseRating.Roll();
+            int hit = HitChance.GetRandom();
+            int dr = defender.DefenseRating.GetRandom();
 
             bool first = hit >= dr;
 
-            hit = HitChance.Roll();
-            dr = defender.DefenseRating.Roll();
+            hit = HitChance.GetRandom();
+            dr = defender.DefenseRating.GetRandom();
 
             bool second = hit >= dr;
 
