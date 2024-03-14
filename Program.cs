@@ -8,7 +8,7 @@ namespace C_II_1stAssignment
     {
         static void Main(string[] args)
         {
-            CombatManager combat = new CombatManager();
+           CombatManager combat = new CombatManager();
 
            List<Unit> red = combat.CreateTeam(5, Unit.Race.Human);
            List<Unit> blue = combat.CreateTeam(5, Unit.Race.Robot);

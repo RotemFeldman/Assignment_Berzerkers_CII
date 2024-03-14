@@ -7,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace C_II_1stAssignment
 {
-    struct Dice : IRandomProvider
+    sealed class Dice : Dice<int>
     {
         private uint _scalar;
         private uint _baseDie;
@@ -20,12 +20,12 @@ namespace C_II_1stAssignment
             _modifier = modifier;
         }
 
-        public int GetRandom()
+        public override int GetRandom()
         {
             return Roll();
         }
 
-        private int Roll()
+        protected override int Roll()
         {
             int ret = 0;
 
