@@ -34,6 +34,8 @@ namespace C_II_1stAssignment
             {
                 Console.WriteLine("true");
             }
+
+            var deck = new Deck<int>(5);
         }
 
         
