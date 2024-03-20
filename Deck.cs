@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 
 namespace C_II_1stAssignment
 {
-    public class Deck<T> where T : struct, IComparable<T> 
+    public class Deck<T> where T : struct, IComparable<T>
     {
         private Queue<T> _currentDeck = new Queue<T>();
         private Queue<T> _discardPile = new Queue<T>();
 
-        private readonly uint _deckSize;
+        private uint _size;
+        public uint Size
+        {
+            get { return _size; }
+        }
 
         public Deck(uint size) 
         {
-            _deckSize = size;
-
-            for (int i = 0; i < size; i++)
-            {
-                _currentDeck.Enqueue(new T());
-            }
+            _size = size;
         }
 
         public void Shuffle()
@@ -61,14 +60,24 @@ namespace C_II_1stAssignment
             return _currentDeck.Peek();
         }
 
-        public uint Size()
-        {
-            return _deckSize;
-        }
 
         public uint Remaining()
         {
             return (uint)_currentDeck.Count;
         }
+
+        public bool TryAdd(T item)
+        {
+            if (_currentDeck.Count + _discardPile.Count < _size)
+            {
+                _currentDeck.Enqueue(item);
+                return true;
+            }
+            
+            Console.WriteLine("The deck is full, items can't be added.");
+
+            return false;
+        }
+
     }
 }

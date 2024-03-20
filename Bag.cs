@@ -5,7 +5,7 @@
 
 namespace C_II_1stAssignment
 {
-    public struct Bag : IRandomProvider , IEquatable<Bag> 
+    public struct Bag : IRandomProvider<int> , IEquatable<Bag> 
     {
         private int[] _array;
         private List<int> _bag;

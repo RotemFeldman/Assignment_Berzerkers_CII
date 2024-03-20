@@ -2,40 +2,42 @@
 // Rotem Feldman - OOP3 //
 //////////////////////////
 
+using System.Security.Cryptography.X509Certificates;
+
 namespace C_II_1stAssignment
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-           CombatManager combat = new CombatManager();
+           void RandomFighter<T>(Deck<T> deck, Dice<T> die, Comparer<T> comparer) where T : struct , IComparable<T> 
+           {
+                int deckWins = 0;
+                int DieWins = 0;
+                int Ties = 0;
 
-           List<Unit> red = combat.CreateTeam(5, Unit.Race.Human);
-           List<Unit> blue = combat.CreateTeam(5, Unit.Race.Robot);
+                for (int i = 0; i < deck.Size; i++)
+                {
+                    T dieRoll = die.GetRandom();
+                    T deckDraw = deck.Peek();
 
-           combat.DoCombat(blue, red);
+                    if(comparer.Compare(dieRoll,deckDraw) < 0)
+                    {
+                        deckWins++;
+                    }
+                    else if(comparer.Compare(dieRoll,deckDraw)  > 0)
+                    {
+                        DieWins++;
+                    }
+                    else
+                        Ties++;
+                }
+           }
 
-            Bag bag1 = new Bag(1,1,4,5,6);
-            Bag bag2 = new Bag(4,5,1,6,1);
+            Dice dice = new Dice(1,20,0);
 
-            Console.WriteLine(bag1.GetRandom());
-            Console.WriteLine(bag1.GetRandom());
-            Console.WriteLine(bag1.GetRandom());
-            Console.WriteLine(bag1.GetRandom());
-            Console.WriteLine(bag1.GetRandom());
-            Console.WriteLine();
-            Console.WriteLine(bag1.GetRandom());
-            Console.WriteLine(bag1.GetRandom());
-            Console.WriteLine(bag1.GetRandom());
-            Console.WriteLine(bag1.GetRandom());
-            Console.WriteLine(bag1.GetRandom());
+            Deck<int> deck = new Deck<int>(40);
 
-            if (bag1.Equals( bag2))
-            {
-                Console.WriteLine("true");
-            }
-
-            var deck = new Deck<int>(5);
         }
 
         

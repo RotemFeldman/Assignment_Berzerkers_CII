@@ -6,7 +6,7 @@ namespace C_II_1stAssignment
 {
     sealed class DragonbornMage : RangedUnit
     {
-        public DragonbornMage(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating)
+        public DragonbornMage(IRandomProvider<int> damage, IRandomProvider<int> hitChance, IRandomProvider<int> defenseRating) : base(damage, hitChance, defenseRating)
         {
             UnitRace = Race.Dragonborn;
             HP = 35;

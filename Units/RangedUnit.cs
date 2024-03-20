@@ -6,7 +6,7 @@ namespace C_II_1stAssignment
 {
     abstract class RangedUnit : Unit
     {
-        public RangedUnit(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating)
+        public RangedUnit(IRandomProvider<int> damage, IRandomProvider<int> hitChance, IRandomProvider<int> defenseRating) : base(damage, hitChance, defenseRating)
         {
             _ammoLeft = AmmoPerReload;
             UnitList.AllRangedUnits.Add(this);

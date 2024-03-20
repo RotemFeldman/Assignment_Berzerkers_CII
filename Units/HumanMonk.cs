@@ -8,7 +8,7 @@ namespace C_II_1stAssignment
 {
     sealed class HumanMonk : Unit
     {
-        public HumanMonk(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating) 
+        public HumanMonk(IRandomProvider<int> damage, IRandomProvider<int> hitChance, IRandomProvider<int> defenseRating) : base(damage, hitChance, defenseRating) 
         { 
             UnitRace = Race.Human;
             HP = 65;

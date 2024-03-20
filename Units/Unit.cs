@@ -29,7 +29,7 @@ namespace C_II_1stAssignment
             }
         }
 
-        public Unit(IRandomProvider damage , IRandomProvider hitChance, IRandomProvider defenseRating) 
+        public Unit(IRandomProvider<int> damage , IRandomProvider<int> hitChance, IRandomProvider<int> defenseRating) 
         {
             Damage = damage;
             HitChance = hitChance;
@@ -52,12 +52,12 @@ namespace C_II_1stAssignment
             }
         }
         
-        public virtual IRandomProvider Damage { get; protected set; }
+        public virtual IRandomProvider<int> Damage { get; protected set; }
         public virtual int HP { get; protected set;}
         public virtual Race UnitRace { get; protected set; }
         public virtual int CarryCapacity { get; protected set; }
-        public virtual IRandomProvider HitChance { get; protected set; }
-        public virtual IRandomProvider DefenseRating { get; protected set; }
+        public virtual IRandomProvider<int> HitChance { get; protected set; }
+        public virtual IRandomProvider<int> DefenseRating { get; protected set; }
         public virtual bool IsDead { get; protected set; } = false;
         public virtual string Name { get; protected set; }
         public virtual Weather.WeatherEffect WeatherEffect { get; protected set; }
@@ -150,7 +150,7 @@ namespace C_II_1stAssignment
             
         }
 
-        private IRandomProvider GenerateRandomIRandomProvider()
+        private IRandomProvider<int> GenerateRandomIRandomProvider()
         {
             if(Random.Shared.Next(1,3) == 1)
             {

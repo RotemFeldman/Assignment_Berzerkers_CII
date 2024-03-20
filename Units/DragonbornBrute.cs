@@ -5,7 +5,7 @@ namespace C_II_1stAssignment
 {
     sealed class DragonbornBrute : Unit
     {
-        public DragonbornBrute(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating) : base(damage, hitChance, defenseRating)
+        public DragonbornBrute(IRandomProvider<int> damage, IRandomProvider<int> hitChance, IRandomProvider<int> defenseRating) : base(damage, hitChance, defenseRating)
         {
             UnitRace = Race.Dragonborn;
             HP = 55;

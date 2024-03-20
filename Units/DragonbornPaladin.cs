@@ -6,7 +6,7 @@ namespace C_II_1stAssignment
 {
     sealed class DragonbornPaladin : HeavyUnit
     {
-        public DragonbornPaladin(IRandomProvider damage, IRandomProvider hitChance, IRandomProvider defenseRating): base(damage,hitChance,defenseRating) 
+        public DragonbornPaladin(IRandomProvider<int> damage, IRandomProvider<int> hitChance, IRandomProvider<int> defenseRating): base(damage,hitChance,defenseRating) 
         { 
             UnitRace = Race.Dragonborn;
             HP = 90;
