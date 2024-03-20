@@ -7,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace C_II_1stAssignment
 {
-    sealed class Dice : Dice<int>
+    sealed class Dice : Dice<int> 
     {
         private uint _scalar;
         private uint _baseDie;

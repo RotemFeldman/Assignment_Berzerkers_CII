@@ -8,7 +8,7 @@ using System.Text;
 
 namespace C_II_1stAssignment
 {
-    class Dice<T> where T : IComparable<T> , IRandomProvider 
+    class Dice<T> : IRandomProvider<T> where T : IComparable<T> 
     {
         private T[] _dieFaces;
 

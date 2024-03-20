@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace C_II_1stAssignment
 {
-    internal class Deck<T> where T : struct , IComparable<T>
+    public class Deck<T> where T : struct, IComparable<T> 
     {
         private Queue<T> _currentDeck = new Queue<T>();
         private Queue<T> _discardPile = new Queue<T>();

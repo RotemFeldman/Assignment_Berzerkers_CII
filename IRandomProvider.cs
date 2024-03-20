@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace C_II_1stAssignment
 {
-    public interface IRandomProvider
+    public interface IRandomProvider<T>
     {
-        public int GetRandom();
+        public T GetRandom();
     }
 }
