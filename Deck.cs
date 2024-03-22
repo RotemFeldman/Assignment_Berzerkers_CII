@@ -6,12 +6,22 @@ using System.Threading.Tasks;
 
 namespace C_II_1stAssignment
 {
-    public class Deck<T> where T : struct, IComparable<T>
+    public class Deck<T> : IComparable<T> where T : struct, IComparable<T>
     {
         private Queue<T> _currentDeck = new Queue<T>();
         private Queue<T> _discardPile = new Queue<T>();
 
         private uint _size;
+
+        private bool IsDeckFullyInitialized()
+        {
+            if(_currentDeck.Count + _discardPile.Count == _size)
+                return true;
+
+            Console.WriteLine($"The deck must be fully initialized before use. You need to add {_size - _discardPile.Count - _currentDeck.Count} more items");
+                return false;
+        }
+
         public uint Size
         {
             get { return _size; }
@@ -24,6 +34,9 @@ namespace C_II_1stAssignment
 
         public void Shuffle()
         {
+            if (!IsDeckFullyInitialized())
+                return;
+
             List<T> holder = new List<T>(_currentDeck);
             _currentDeck.Clear();
 
@@ -38,6 +51,9 @@ namespace C_II_1stAssignment
 
         public void ReShuffle()
         {
+            if (!IsDeckFullyInitialized())
+                return;
+
             foreach (T item in _discardPile)
             {
                 _currentDeck.Enqueue(item);
@@ -48,6 +64,9 @@ namespace C_II_1stAssignment
 
         public bool TryDraw()
         {
+            if (!IsDeckFullyInitialized())
+                return false;
+
             if (_currentDeck.Count == 0)
                 return false;
 
@@ -57,6 +76,9 @@ namespace C_II_1stAssignment
 
         public T Peek()
         {
+            if (!IsDeckFullyInitialized())
+                return new T();
+
             return _currentDeck.Peek();
         }
 
@@ -71,12 +93,19 @@ namespace C_II_1stAssignment
             if (_currentDeck.Count + _discardPile.Count < _size)
             {
                 _currentDeck.Enqueue(item);
+                Console.WriteLine($"Added: {item}");
                 return true;
             }
             
             Console.WriteLine("The deck is full, items can't be added.");
 
             return false;
+        }
+
+        public int CompareTo(T other)
+        {
+
+            return this.Peek().CompareTo(other);
         }
 
     }

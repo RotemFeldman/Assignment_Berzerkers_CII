@@ -8,7 +8,7 @@ using System.Text;
 
 namespace C_II_1stAssignment
 {
-    class Dice<T> : IRandomProvider<T> where T : IComparable<T> 
+    class Dice<T> : IRandomProvider<T> , IComparable<T> where T : IComparable<T> 
     {
         private T[] _dieFaces;
 
@@ -24,7 +24,7 @@ namespace C_II_1stAssignment
 
         protected virtual T Roll()
         {           
-            int index = Random.Shared.Next(_dieFaces.Length + 1);
+            int index = Random.Shared.Next(_dieFaces.Length);
 
             return _dieFaces[index];
         }
@@ -44,6 +44,9 @@ namespace C_II_1stAssignment
 
         public override bool Equals([NotNullWhen(true)] object? obj)
         {
+            if (obj == null) 
+                throw new ArgumentNullException(nameof(obj));
+
             var die = (Dice<T>)obj;
 
             if (die == null) return false;
@@ -64,6 +67,12 @@ namespace C_II_1stAssignment
             return ret;
         }
 
-        
+        public int CompareTo(T? other)
+        {
+            if(other == null)
+                return 1;
+
+            return this.Roll().CompareTo(other);
+        }
     }
 }
